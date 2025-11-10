@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Radio Club - W3BN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1E3A8A;
+            --secondary: #10B981;
+            --bg: #F9FAFB;
+            --text: #111827;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        
+        header {
+            position: sticky; top: 0; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+        }
+        .logo { height: 60px; border-radius: 8px; }
+        nav ul { list-style: none; display: flex; gap: 1.5rem; }
+        nav a { color: var(--primary); text-decoration: none; font-weight: 500; transition: color .2s; }
+        nav a:hover { color: var(--secondary); }
+
+        /* SHRINKED HERO */
+       .hero {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+                url('https://cdn-bio.qrz.com/x/pa0hkx/Shack_PNG.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            min-height: 45vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background-attachment: fixed;
+        }
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            margin: 0 0 .4rem;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+            letter-spacing: 1.5px;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            font-weight: 500;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+        }
+        .hero button {
+            background: rgba(16, 185, 129, 0.95);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            backdrop-filter: blur(3px);
+        }
+        .hero button:hover {
+            background: #10B981;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.1; }
+        }
+
+        .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 1rem; }
+        .section-title {
+            text-align: center; font-family: 'Orbitron', sans-serif; color: var(--primary);
+            margin-bottom: 1.5rem; font-size: 2rem;
+        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card {
+            background: white; border-radius: .6rem; padding: 1.5rem; box-shadow: var(--card-shadow);
+            transition: transform .2s;
+        }
+        .card:hover { transform: translateY(-4px); }
+        .card h3 { margin-top: 0; color: var(--primary); }
+        .btn {
+            background: var(--secondary); color: white; border: none; padding: .6rem 1rem;
+            border-radius: .3rem; cursor: pointer; font-size: .9rem; margin-top: .5rem;
+            text-decoration: none; display: inline-block;
+        }
+        .news-card small { color: #666; display: block; margin-top: .5rem; }
+        .news-card a { color: var(--primary); text-decoration: none; }
+        .news-card a:hover { color: var(--secondary); }
+
+        .repeater audio { width: 100%; margin-top: .8rem; height: 40px; }
+        .repeater .status { font-size: .85rem; color: #666; margin-top: .5rem; display: flex; align-items: center; gap: .4rem; }
+        .repeater .status i { color: var(--secondary); }
+
+        footer {
+            background: #111827; color: #ddd; text-align: center; padding: 2rem 1rem; font-size: .9rem;
+        }
+        footer a { color: var(--secondary); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.1rem; }
+            .hero { padding: 3rem 1rem; }
+            nav ul { flex-direction: column; gap: .5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://qsl.net/w3bn/Files/Image/RRC_Pagoda_Logo.jpg" alt="Reading Radio Club Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#announcements">Announcements</a></li>
+                <li><a href="#news">Ham News</a></li>
+                <li><a href="#repeater">Repeater</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Reading Radio Club – W3BN</h1>
+        <p>Connecting hams across Berks County and beyond since 1922.</p>
+        <button onclick="document.getElementById('repeater').scrollIntoView({behavior: 'smooth'})">
+            Listen Live on 146.910 MHz
+        </button>
+    </section>
+
+    <div class="container" id="events">
+        <h2 class="section-title">Upcoming Events</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>General Meeting – Dec 5, 2025 – 7:30PM </h3>
+                <p>Join us for updates, Q&A, and coffee. Location: Berks County AG Center.</p>
+                <button class="btn">RSVP</button>
+            </div>
+            <div class="card">
+                <h3>FLDIGI Digital Workshop – Nov 20, 2025</h3>
+                <p>Hands-on digital modes. Bring your laptop and rig!</p>
+                <button class="btn">Details</button>
+            </div>
+            <div class="card">
+                <h3>Fox Hunt – TBD</h3>
+                <p>Hidden transmitter hunt in Neversink Mountain. Prizes!</p>
+                <button class="btn">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="announcements">
+        <h2 class="section-title">Announcements</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Membership Dues Due</h3>
+                <p>2026 dues are now open. Pay via PayPal or in-person.</p>
+                <a href="https://paypal.com" target="_blank"><button class="btn">Pay Now</button></a>
+            </div>
+            <div class="card">
+                <h3>Board Elections</h3>
+                <p>Nominate candidates by Nov 15. Vote at Dec meeting.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: NATIONAL HAM NEWS SECTION -->
+    <div class="container" id="news">
+        <h2 class="section-title">National Ham News</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 1.5rem;">Latest from ARRL & eHam.net – Updated as of Nov 9, 2025</p>
+        <div class="grid">
+            <div class="card news-card">
+                <h3>ARRL Foundation Reopens Club Grant Program for 2024</h3>
+                <p>The ARRL Foundation has announced the return of its Club Grant Program, offering funding for amateur radio clubs. Supported by Amateur Radio Digital Communications (ARDC), grants aim to enhance club activities and education.</p>
+                <small><i class="fas fa-calendar-alt"></i> Oct 2024 | <a href="https://www.eham.net/article/50959" target="_blank">eHam.net</a></small>
+                <a href="https://www.arrl.org/club-grant-program" target="_blank"><button class="btn">Read More</button></a>
+            </div>
+            <div class="card news-card">
+                <h3>W1AW Announces 2023/2024 Winter Operating Schedule</h3>
+                <p>ARRL's Hiram Percy Maxim Memorial Station W1AW has released its winter bulletin and code practice schedule, running through early 2024. Check for frequencies and times to tune in.</p>
+                <small><i class="fas fa-calendar-alt"></i> Nov 6, 2023 | <a href="https://www.eham.net/news/view-news-item/50193" target="_blank">eHam.net</a></small>
+                <a href="https://www.arrl.org/w1aw-operating-schedule" target="_blank"><button class="btn">Read More</button></a>
+            </div>
+            <div class="card news-card">
+                <h3>ARRL Audio News: Weekly Podcast Now Available</h3>
+                <p>ARRL's Audio News podcast summarizes top ham radio stories, interviews, and features every Friday. Listen on-demand for the latest in amateur radio developments.</p>
+                <small><i class="fas fa-calendar-alt"></i> Recent | <a href="https://www.eham.net/article/51130" target="_blank">eHam.net</a></small>
+                <a href="https://www.arrl.org/arrl-audio-news" target="_blank"><button class="btn">Listen Now</button></a>
+            </div>
+            <div class="card news-card">
+                <h3>Updated ARRL US Amateur Radio Bands Charts Released</h3>
+                <p>ARRL has updated its graphical frequency allocation charts for US hams, available in color or grayscale PDF. Includes the latest band plans and WAS map on the reverse.</p>
+                <small><i class="fas fa-calendar-alt"></i> Recent | <a href="https://www.eham.net/article/39229" target="_blank">eHam.net</a></small>
+                <a href="https://www.arrl.org/graphical-frequency-allocations" target="_blank"><button class="btn">Download</button></a>
+            </div>
+            <div class="card news-card">
+                <h3>ARRL Podcasts: New Episodes on Ham Topics</h3>
+                <p>Explore ARRL's growing podcast library covering contests, emergency comms, and tech updates. New episodes drop regularly for on-the-go listening.</p>
+                <small><i class="fas fa-calendar-alt"></i> Recent | <a href="https://www.eham.net/article/51130" target="_blank">eHam.net</a></small>
+                <a href="http://www.arrl.org/arrlletter/audio/aan.rss" target="_blank"><button class="btn">Subscribe</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="repeater">
+        <h2 class="section-title">W3BN Repeater – 146.910 MHz (–) PL 131.8</h2>
+        <div class="grid">
+            <div class="card repeater">
+                <h3>Listen Live</h3>
+                <p>Streaming 24/7. Click play to monitor the net.</p>
+                <audio controls>
+                    <source src="https://broadcastify.cdnstream.com/YOUR_FEED_ID_HERE" type="audio/mpeg">
+                    Your browser does not support audio. 
+                    <a href="https://www.broadcastify.com/listen/feed/YOUR_FEED_ID" target="_blank">Open in Broadcastify</a>
+                </audio>
+                <div class="status">
+                    <i class="fas fa-broadcast-tower"></i>
+                    <span>Live feed refreshes every 5 minutes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Social & Email</h3>
+                <p>
+                    <a href="https://facebook.com/ReadingRadioClub" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><br>
+                    <a href="https://discord.gg/abc123" target="_blank"><i class="fab fa-discord"></i> Discord</a><br>
+                    <a href="mailto:w3bn@arrl.net"><i class="fas fa-envelope"></i> w3bn@arrl.net</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            © 2025 Reading Radio Club - W3BN | ARRL Affiliated | 
+            <a href="https://facebook.com/ReadingRadioClub">Facebook</a> | 
+            <a href="https://discord.gg/abc123">Discord</a>
+        </p>
+    </footer>
+
+    <script>
+        const audio = document.querySelector('audio');
+        if (audio) {
+            setInterval(() => {
+                const wasPlaying = !audio.paused;
+                audio.src = audio.src;
+                if (wasPlaying) audio.play().catch(() => {});
+            }, 5 * 60 * 1000);
+        }
+    </script>
+</body>
+</html>
