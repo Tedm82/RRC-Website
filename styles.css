@@ -1,0 +1,210 @@
+:root {
+  --primary: #1E3A8A;
+  --secondary: #10B981;
+  --bg: #F9FAFB;
+  --text: #111827;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  height: 60px;
+  border-radius: 8px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+nav a:hover {
+  color: var(--secondary);
+}
+
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+  url('site/assets/hero-shack.webp') center/cover no-repeat;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+  min-height: 45vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.8rem;
+  margin: 0 0 .4rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1.5px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero button {
+  background: rgba(16, 185, 129, 0.95);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+}
+
+.hero button:hover {
+  background: #10B981;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: .6rem;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: transform .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+.btn {
+  background: var(--secondary);
+  color: white;
+  border: none;
+  padding: .6rem 1rem;
+  border-radius: .3rem;
+  cursor: pointer;
+  font-size: .9rem;
+  margin-top: .5rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.repeater audio {
+  width: 100%;
+  margin-top: .8rem;
+  height: 40px;
+}
+
+.repeater .status {
+  font-size: .85rem;
+  color: #666;
+  margin-top: .5rem;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.repeater .status i {
+  color: var(--secondary);
+}
+
+footer {
+  background: #111827;
+  color: #ddd;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: .9rem;
+  margin-top: 3rem;
+}
+
+footer a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll;
+    padding: 3rem 1rem;
+    background-size: cover;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: .5rem;
+  }
+}
