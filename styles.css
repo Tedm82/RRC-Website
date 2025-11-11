@@ -4,14 +4,17 @@
   --navy-dark: #0a1420;
   --gold: #FFD700;
   --gold-soft: #f9c400;
-  --gold-glow: 0 0 8px rgba(255, 215, 0, 0.6), 0 0 16px rgba(255, 215, 0, 0.3);
   --text: #f3f4f6;
   --text-muted: #9ca3af;
   --card-bg: rgba(30, 58, 95, 0.25);
   --border-gold: rgba(255, 215, 0, 0.4);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
 
 body {
   font-family: 'Inter', sans-serif;
@@ -28,16 +31,13 @@ body {
   letter-spacing: 0.5px;
 }
 
-.glow {
+/* --- MODIFICATION: Replaced glow with crisp text --- */
+.glow,
+.glow-sm,
+.text-gold {
   color: var(--gold);
-  text-shadow: var(--gold-glow);
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
-}
-
-/* Softer glow for smaller text */
-.glow-sm {
-  color: var(--gold-soft);
-  text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+  text-shadow: none;
+  filter: none;
 }
 
 /* Hero Title — Big & Bold */
@@ -56,8 +56,9 @@ nav {
   border-bottom: 1px solid var(--border-gold);
 }
 
+/* --- MODIFICATION: Changed nav link color to match theme --- */
 nav a {
-  color: #93c5fd;
+  color: var(--text-muted); /* Was #93c5fd */
   transition: color 0.3s ease;
 }
 nav a:hover, nav a.text-gold {
