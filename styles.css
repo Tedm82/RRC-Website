@@ -1,13 +1,14 @@
-/* css/styles.css - W3BN Navy & Gold Cyber-Ham Theme */
+/* css/styles.css - W3BN Navy & Gold — CRISP & READABLE */
 :root {
   --navy: #001F3F;
   --navy-dark: #0a1420;
   --gold: #FFD700;
-  --gold-glow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #b8860b;
-  --text: #e5e7eb;
+  --gold-soft: #f9c400;
+  --gold-glow: 0 0 8px rgba(255, 215, 0, 0.6), 0 0 16px rgba(255, 215, 0, 0.3);
+  --text: #f3f4f6;
   --text-muted: #9ca3af;
-  --card-bg: rgba(30, 58, 95, 0.3);
-  --border-gold: rgba(255, 215, 0, 0.5);
+  --card-bg: rgba(30, 58, 95, 0.25);
+  --border-gold: rgba(255, 215, 0, 0.4);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,59 +17,100 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: var(--navy-dark);
   color: var(--text);
-  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.orbitron { font-family: 'Orbitron', monospace; }
-.glow { text-shadow: var(--gold-glow); }
+.orbitron { 
+  font-family: 'Orbitron', monospace; 
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
 
-.bg-navy { background-color: var(--navy); }
-.bg-navy-card { background-color: var(--card-bg); }
-.border-gold { border-color: var(--border-gold); }
+.glow {
+  color: var(--gold);
+  text-shadow: var(--gold-glow);
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+}
 
-.text-gold { color: var(--gold); }
-.hover\:text-gold:hover { color: var(--gold); }
+/* Softer glow for smaller text */
+.glow-sm {
+  color: var(--gold-soft);
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+/* Hero Title — Big & Bold */
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+@media (min-width: 768px) {
+  .hero h1 { font-size: 5rem; }
+}
 
 /* Navbar */
 nav {
-  background-color: rgba(0, 31, 63, 0.8);
-  backdrop-filter: blur(8px);
+  background-color: rgba(0, 31, 63, 0.85);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-gold);
 }
 
-/* Hero */
-.hero {
-  background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(10, 20, 32, 0.9)), url('../assets/hero-bg.jpg') center/cover no-repeat;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+nav a {
+  color: #93c5fd;
+  transition: color 0.3s ease;
+}
+nav a:hover, nav a.text-gold {
+  color: var(--gold) !important;
+}
+
+/* Cards */
+.bg-navy-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 1rem;
+  padding: 1.5rem;
 }
 
 /* Buttons */
 .btn-gold {
   background-color: var(--gold);
   color: var(--navy);
+  font-weight: 600;
   padding: 0.75rem 2rem;
   border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 .btn-gold:hover {
   background-color: #e6c200;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
+
 .btn-outline-gold {
   border: 2px solid var(--gold);
   color: var(--gold);
+  font-weight: 600;
   padding: 0.75rem 2rem;
   border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
 .btn-outline-gold:hover {
-  background-color: rgba(255, 215, 0, 0.2);
+  background-color: rgba(255, 215, 0, 0.15);
+  color: var(--gold);
+}
+
+/* Hero Background */
+.hero {
+  background: linear-gradient(rgba(0, 31, 63, 0.75), rgba(10, 20, 32, 0.9)), 
+              url('../assets/hero-bg.jpg') center/cover no-repeat;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
 /* Timeline */
@@ -82,6 +124,6 @@ nav {
 
 /* Mobile Menu */
 #mobile-menu {
-  background-color: rgba(0, 31, 63, 0.95);
+  background-color: rgba(0, 31, 63, 0.97);
   border-top: 1px solid var(--border-gold);
 }
