@@ -1,83 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>W3BN - Reading Radio Club</title>
-  <meta name="description" content="Reading Radio Club W3BN - ARRL Affiliated since 1922. 146.910 MHz Repeater, Nets, Events." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading Radio Club | W3BN Repeater</title>
+  <meta name="description" content="Reading Radio Club – W3BN VHF/UHF repeater serving Reading, PA. Join 93 members for nets, events, and amateur radio fun." />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .orbitron { font-family: 'Orbitron', monospace; }
+    .glow { text-shadow: 0 0 10px #06b6d4, 0 0 20px #06b6d4; }
+  </style>
 </head>
-<body>
-<header>
-  <img src="assets/logo.jpg" alt="RRC Logo" class="logo">
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="propagation.html">Ham Clock</a></li>
-      <li><a href="about.html">History</a></li>
-      <li><a href="membership.html">Join</a></li>
-      <li><a href="activities.html">Activities</a></li>
-      <li><a href="nets.html">Nets</a></li>
-      <li><a href="social.html">Social</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+<body class="bg-gray-950 text-white min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-cyan-900/50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold orbitron text-cyan-400 hover:glow transition">W3BN</a>
+      <ul class="flex space-x-6 text-sm flex-wrap justify-center">
+        <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
+        <li><a href="history.html" class="hover:text-cyan-400 transition">History</a></li>
+        <li><a href="membership.html" class="hover:text-cyan-400 transition">Membership</a></li>
+        <li><a href="activities.html" class="hover:text-cyan-400 transition">Activities</a></li>
+        <li><a href="nets.html" class="hover:text-cyan-400 transition">Nets</a></li>
+        <li><a href="propagation.html" class="hover:text-cyan-400 transition">Propagation</a></li>
+        <li><a href="social.html" class="hover:text-cyan-400 transition">Social</a></li>
+        <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
+      </ul>
+    </div>
   </nav>
-</header>
 
-<section class="hero">
-  <h1>Reading Radio Club – W3BN</h1>
-  <p>Connecting hams in Berks County since 1922</p>
-  <button onclick="document.getElementById('repeater').scrollIntoView({behavior: 'smooth'})">
-    Listen Live – 146.910 MHz
-  </button>
-</section>
+  <!-- Hero -->
+  <section class="pt-24 pb-12 px-6 text-center bg-gradient-to-b from-gray-900 to-gray-950">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-cyan-400 glow">Reading Radio Club</h1>
+      <p class="text-xl text-gray-300 mb-8">W3BN Repeater – Serving Reading, PA with 93 active hams. Emergency comms, public service, and ragchewing since [Year].</p>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="membership.html" class="px-8 py-4 bg-cyan-600 hover:bg-cyan-500 rounded-lg font-semibold transition">Join Us</a>
+        <a href="propagation.html" class="px-8 py-4 border-2 border-cyan-600 hover:bg-cyan-600/20 rounded-lg font-semibold transition">Check Propagation</a>
+      </div>
+    </div>
+  </section>
 
-<div class="container" id="events">
-  <h2 class="section-title">Upcoming Events</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>General Meeting</h3>
-      <p>Next: <strong class="next-general">Loading...</strong></p>
-      <p>7:30 PM @ Berks County Ag Center</p>
+  <!-- Quick Links -->
+  <section class="py-12 px-6 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold orbitron text-center mb-8 glow text-cyan-400">Quick Links</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50">
+        <h3 class="text-xl font-semibold mb-2">Next Nets</h3>
+        <p>General: <span class="auto-date" data-type="general"></span></p>
+        <p>Board: <span class="auto-date" data-type="board"></span></p>
+        <p>Air: <span class="auto-date" data-type="air"></span></p>
+      </div>
+      <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50">
+        <h3 class="text-xl font-semibold mb-2">W3BN Repeater</h3>
+        <p>146.820 MHz (-) | 100.0 Hz PL | Mt. Penn</p>
+        <a href="contact.html" class="text-cyan-400 hover:underline">Status →</a>
+      </div>
+      <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50">
+        <h3 class="text-xl font-semibold mb-2">Events</h3>
+        <p>Field Day June 2026 | Club Picnic July</p>
+        <a href="activities.html" class="text-cyan-400 hover:underline">Calendar →</a>
+      </div>
     </div>
-    <div class="card">
-      <h3>Meeting on the Air (MOTA)</h3>
-      <p>Every Friday @ 8:00 PM<br>
-        Next: <strong class="next-mota">Loading...</strong></p>
-    </div>
-    <div class="card">
-      <h3>Simplex Test</h3>
-      <p>Saturday after General Meeting<br>
-        Next: <strong class="next-simplex">Loading...</strong></p>
-    </div>
-    <div class="card">
-      <h3>Board Meeting (Zoom)</h3>
-      <p>1st Tuesday @ 7:30 PM<br>
-        Next: <strong class="next-board">Loading...</strong></p>
-    </div>
-  </div>
-</div>
+  </section>
 
-<div class="container" id="repeater">
-  <h2 class="section-title">W3BN Repeater – 146.910 MHz (–) PL 131.8</h2>
-  <div class="grid">
-    <div class="card repeater">
-      <h3>Listen Live</h3>
-      <p>Streaming 24/7 via Broadcastify</p>
-      <audio controls>
-        <source src="https://broadcastify.cdnstream.com/YOUR_FEED_ID" type="audio/mpeg">
-        <a href="https://www.broadcastify.com/listen/feed/YOUR_FEED_ID" target="_blank">Open in Broadcastify</a>
-      </audio>
-    </div>
-  </div>
-</div>
+  <!-- Footer -->
+  <footer class="mt-20 py-8 px-6 text-center text-gray-500 text-sm border-t border-gray-800">
+    <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
+    <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-cyan-400 hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-cyan-400 hover:underline">Member Login</a></p>
+  </footer>
 
-<footer>
-  <p>© 2025 Reading Radio Club - W3BN | ARRL Affiliated</p>
-</footer>
-
-<script src="js/auto-dates.js" defer></script>
+  <script src="js/auto-dates.js"></script>
 </body>
 </html>
