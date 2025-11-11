@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Propagation & Solar | W3BN — Reading Radio Club</title>
   <meta name="description" content="Live HF propagation forecast, solar data, and Ham Clock for W3BN members. Check band conditions before you call CQ!" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -15,130 +15,93 @@
 </head>
 <body class="bg-gray-950 text-white min-h-screen">
 
-<!-- Navbar -->
-<nav class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-cyan-900/50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="index.html" class="text-2xl font-bold orbitron text-cyan-400 hover:glow transition">W3BN</a>
-    <ul class="flex space-x-8 text-sm">
-      <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
-      <li><a href="activities.html" class="hover:text-cyan-400 transition">Activities</a></li>
-      <li><a href="nets.html" class="hover:text-cyan-400 transition">Nets</a></li>
-      <li><a href="propagation.html" class="text-cyan-400">Propagation</a></li>
-      <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- Hero -->
-<section class="pt-24 pb-12 px-6 text-center bg-gradient-to-b from-gray-900 to-gray-950">
-  <div class="max-w-5xl mx-auto">
-    <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-cyan-400 glow">
-      Propagation Center
-    </h1>
-    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-      Live solar data, HF band conditions, and propagation forecasts for W3BN operators. Know when to work DX — before you turn the big knob.
-    </p>
-  </div>
-</section>
-
-<!-- Main Dashboard -->
-<section class="py-12 px-6 max-w-7xl mx-auto space-y-12">
-
-  <!-- Solar Widget (RigReference - Embeddable) -->
-  <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
-    <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">Live Solar & Band Conditions</h2>
-    <div id="solar-widget-container" class="text-center">
-      <!-- Fallback message while loading -->
-      <p class="text-gray-500">Loading solar data...</p>
+  <!-- Navbar -->
+  <nav class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-cyan-900/50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold orbitron text-cyan-400 hover:glow transition">W3BN</a>
+      <ul class="flex space-x-8 text-sm">
+        <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
+        <li><a href="activities.html" class="hover:text-cyan-400 transition">Activities</a></li>
+        <li><a href="nets.html" class="hover:text-cyan-400 transition">Nets</a></li>
+        <li><a href="propagation.html" class="text-cyan-400 font-bold">Propagation</a></li>
+        <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
+      </ul>
     </div>
-    <script src="https://rigreference.com/js/solarwidget.js" async></script>
-    <p class="text-center text-sm text-gray-500 mt-4">
-      Updates every 3 hours • Source: <a href="https://rigreference.com/solar" target="_blank" class="text-cyan-400 hover:underline">RigReference</a> (NOAA data)
-    </p>
-  </div>
+  </nav>
 
-  <!-- Propagation Forecast Table (JS-Powered Fallback) -->
-  <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
-    <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">HF Propagation Summary</h2>
-    <div id="prop-table" class="overflow-x-auto">
-      <table class="w-full text-sm text-left text-gray-300">
-        <thead class="text-xs uppercase bg-gray-800">
-        <tr>
-          <th class="px-4 py-2">Band</th>
-          <th class="px-4 py-2">Day Status</th>
-          <th class="px-4 py-2">Night Status</th>
-          <th class="px-4 py-2">MUF (MHz)</th>
-        </tr>
-        </thead>
-        <tbody id="prop-body">
-        <!-- Populated by JS below -->
-        </tbody>
-      </table>
+  <!-- Hero -->
+  <section class="pt-24 pb-12 px-6 text-center bg-gradient-to-b from-gray-900 to-gray-950">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-cyan-400 glow">
+        Propagation Center
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Live solar data, HF band conditions, and propagation forecasts for W3BN operators. Auto-updates every 3 hours from NOAA.
+      </p>
     </div>
-    <p class="text-center text-sm text-gray-500 mt-4">
-      Estimated for FN20 (Reading, PA) • Green=Good • Yellow=Fair • Red=Poor
+  </section>
+
+  <!-- Main Dashboard -->
+  <section class="py-12 px-6 max-w-7xl mx-auto space-y-12">
+
+    <!-- HamQSL Solar Banner (Live Data) -->
+    <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
+      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">Live Solar-Terrestrial Data</h2>
+      <div class="text-center">
+        <iframe 
+          src="https://www.hamqsl.com/solarxml.php" 
+          width="100%" 
+          height="200" 
+          frameborder="0" 
+          scrolling="no"
+          class="rounded-lg shadow-inner">
+        </iframe>
+      </div>
+      <p class="text-center text-sm text-gray-500 mt-4">
+        SFI • A/K-Index • Sunspots • X-Ray • Auto-updates every 3 hours • Source: <a href="https://www.hamqsl.com" target="_blank" class="text-cyan-400 hover:underline">HamQSL (NOAA)</a>
+      </p>
+    </div>
+
+    <!-- HF Propagation Conditions -->
+    <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
+      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">HF Band Propagation Forecast</h2>
+      <div class="text-center">
+        <iframe 
+          src="https://www.hamqsl.com/solarvhfcond.php" 
+          width="100%" 
+          height="600" 
+          frameborder="0" 
+          scrolling="no"
+          class="rounded-lg shadow-inner">
+        </iframe>
+      </div>
+      <p class="text-center text-sm text-gray-500 mt-4">
+        Green = Open • Red = Closed • Day/Night estimates for 160m–10m • Source: <a href="https://www.hamqsl.com" target="_blank" class="text-cyan-400 hover:underline">HamQSL</a>
+      </p>
+    </div>
+
+    <!-- Quick Tips -->
+    <div class="bg-gradient-to-r from-cyan-900/20 to-purple-900/20 rounded-2xl p-8 border border-cyan-700/30">
+      <h3 class="text-2xl font-bold mb-4 orbitron text-cyan-300">Pro Tips from W3BN</h3>
+      <ul class="space-y-3 text-gray-300">
+        <li>40m & 80m light up after local sunset — perfect for ragchews</li>
+        <li>20m opens to EU ~1300–1900 UTC in winter</li>
+        <li>Check A-index < 15 for clean DX</li>
+        <li>Solar flux > 120? 10m might be open!</li>
+        <li>Use the <a href="nets.html" class="text-cyan-400 hover:underline">W3BN Net</a> to test conditions</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-20 py-8 px-6 text-center text-gray-500 text-sm border-t border-gray-800">
+    <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
+    <p class="mt-2">
+      <a href="https://arrl.org" target="_blank" class="text-cyan-400 hover:underline">ARRL</a> • 
+      <a href="https://hamclubonline.com" target="_blank" class="text-cyan-400 hover:underline">Member Login</a>
     </p>
-  </div>
-
-  <!-- Quick Tips -->
-  <div class="bg-gradient-to-r from-cyan-900/20 to-purple-900/20 rounded-2xl p-8 border border-cyan-700/30">
-    <h3 class="text-2xl font-bold mb-4 orbitron text-cyan-300">Pro Tips from W3BN</h3>
-    <ul class="space-y-3 text-gray-300">
-      <li>40m & 80m light up after local sunset — perfect for ragchews</li>
-      <li>20m opens to EU ~1300–1900 UTC in winter</li>
-      <li>Check A-index < 15 for clean DX</li>
-      <li>Solar flux > 120? 10m might be open!</li>
-      <li>Use the <a href="nets.html" class="text-cyan-400 hover:underline">W3BN Net</a> to test conditions</li>
-    </ul>
-  </div>
-
-</section>
-
-<!-- JS for Propagation Table (Fetches NOAA data via proxy/CDN) -->
-<script>
-  // Simple fetch for NOAA solar data (embeddable via public API)
-  async function loadPropagation() {
-    try {
-      const response = await fetch('https://services.swpc.noaa.gov/json/goes/primary/x-rays-current.json');
-      const data = await response.json();
-      const flux = data[0].flux; // Latest X-ray flux
-      const sfi = 100 + Math.random() * 50; // Placeholder; replace with real SFI fetch if needed
-      const aIndex = Math.floor(Math.random() * 20); // Sim; use real from https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt
-
-      // Basic band estimates (customize based on flux/A-index)
-      const bands = [
-        { band: '160m', day: 'Poor', night: 'Fair', muf: '<2' },
-        { band: '80m', day: 'Poor', night: 'Good', muf: '3.5' },
-        { band: '40m', day: 'Fair', night: 'Good', muf: '7' },
-        { band: '20m', day: 'Good', night: 'Fair', muf: '14' },
-        { band: '10m', day: flux > 1e-5 ? 'Good' : 'Poor', night: 'Poor', muf: '28' }
-      ];
-
-      const tbody = document.getElementById('prop-body');
-      tbody.innerHTML = bands.map(band => `
-          <tr class="${band.day === 'Good' ? 'bg-green-900/20' : band.day === 'Fair' ? 'bg-yellow-900/20' : 'bg-red-900/20'}">
-            <td class="px-4 py-2">${band.band}</td>
-            <td class="px-4 py-2">${band.day}</td>
-            <td class="px-4 py-2">${band.night}</td>
-            <td class="px-4 py-2">${band.muf}</td>
-          </tr>
-        `).join('');
-    } catch (error) {
-      document.getElementById('prop-table').innerHTML = '<p class="text-center text-gray-500">Data fetch failed—check connection.</p>';
-    }
-  }
-  loadPropagation(); // Run on load
-  setInterval(loadPropagation, 1800000); // Refresh every 30 min
-</script>
-
-<!-- Footer -->
-<footer class="mt-20 py-8 px-6 text-center text-gray-500 text-sm border-t border-gray-800">
-  <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
-  <p class="mt-2">
-    <a href="https://arrl.org" target="_blank" class="text-cyan-400 hover:underline">ARRL</a> •
-    <a href="https://hamclubonline.com" target="_blank" class="text-cyan-400 hover:underline">Member Login</a>
-  </p>
-</footer>
+  </footer>
 
 </body>
 </html>
