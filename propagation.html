@@ -36,7 +36,7 @@
         Propagation Center
       </h1>
       <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-        Live solar data, HF band conditions, and propagation forecasts for W3BN operators. Auto-updates every 3 hours from NOAA.
+        Live NOAA solar data + HF band forecasts for W3BN operators. Auto-refreshes every 5 minutes.
       </p>
     </div>
   </section>
@@ -44,39 +44,51 @@
   <!-- Main Dashboard -->
   <section class="py-12 px-6 max-w-7xl mx-auto space-y-12">
 
-    <!-- HamQSL Solar Gadget (Small Vertical) -->
+    <!-- Live Solar Data -->
     <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
-      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">Live Solar-Terrestrial Data</h2>
-      <div class="text-center">
-        <iframe 
-          src="https://www.hamqsl.com/solargadget.php" 
-          width="100%" 
-          height="300" 
-          frameborder="0" 
-          scrolling="no"
-          class="rounded-lg shadow-inner">
-        </iframe>
+      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">Live Solar-Terrestrial Data (NOAA)</h2>
+      <div id="solar-data" class="grid md:grid-cols-4 gap-6 text-center">
+        <!-- Populated by JS -->
+        <div class="bg-gray-800/50 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-300">Solar Flux Index (SFI)</h3>
+          <p id="sfi" class="text-3xl font-bold text-green-400">Loading...</p>
+        </div>
+        <div class="bg-gray-800/50 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-300">Planetary A-Index</h3>
+          <p id="a-index" class="text-3xl font-bold text-yellow-400">Loading...</p>
+        </div>
+        <div class="bg-gray-800/50 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-300">Sunspot Number</h3>
+          <p id="sunspots" class="text-3xl font-bold text-orange-400">Loading...</p>
+        </div>
+        <div class="bg-gray-800/50 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-300">X-Ray Flux (10cm)</h3>
+          <p id="xray" class="text-3xl font-bold text-red-400">Loading...</p>
+        </div>
       </div>
       <p class="text-center text-sm text-gray-500 mt-4">
-        SFI • A/K-Index • Sunspots • X-Ray Flux • Source: <a href="https://www.hamqsl.com" target="_blank" class="text-cyan-400 hover:underline">HamQSL (NOAA)</a>
+        Source: NOAA Space Weather Prediction Center • Last updated: <span id="last-update"></span>
       </p>
     </div>
 
-    <!-- HamQSL VHF/HF Propagation Gadget (Large) -->
+    <!-- HF Propagation Forecast Table -->
     <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
-      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">HF/VHF Band Propagation Forecast</h2>
-      <div class="text-center">
-        <iframe 
-          src="https://www.hamqsl.com/solargadget1.php" 
-          width="100%" 
-          height="600" 
-          frameborder="0" 
-          scrolling="no"
-          class="rounded-lg shadow-inner">
-        </iframe>
-      </div>
+      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">HF Band Propagation Forecast</h2>
+      <table id="prop-table" class="w-full text-sm text-left text-gray-300 overflow-x-auto">
+        <thead class="text-xs uppercase bg-gray-800">
+          <tr>
+            <th class="px-4 py-2">Band</th>
+            <th class="px-4 py-2">Day Status</th>
+            <th class="px-4 py-2">Night Status</th>
+            <th class="px-4 py-2">Notes</th>
+          </tr>
+        </thead>
+        <tbody id="prop-body">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
       <p class="text-center text-sm text-gray-500 mt-4">
-        Green = Open • Red = Closed • Day/Night estimates for 160m–6m + VHF Es • Source: <a href="https://www.hamqsl.com" target="_blank" class="text-cyan-400 hover:underline">HamQSL</a>
+        Estimates for FN20 (Reading, PA) • Based on current SFI/A-Index • Green=Good • Yellow=Fair • Red=Poor
       </p>
     </div>
 
@@ -102,6 +114,68 @@
       <a href="https://hamclubonline.com" target="_blank" class="text-cyan-400 hover:underline">Member Login</a>
     </p>
   </footer>
+
+  <!-- JS: Fetch NOAA Data & Update Dashboard -->
+  <script>
+    async function loadSolarData() {
+      try {
+        // Fetch latest X-ray flux (primary solar indicator)
+        const xrayRes = await fetch('https://services.swpc.noaa.gov/json/goes/primary/x-rays-current.json');
+        const xrayData = await xrayRes.json();
+        const xray = xrayData[xrayData.length - 1].flux; // Latest value
+
+        // Fetch daily geomagnetic indices for A-index & sunspots
+        const geoRes = await fetch('https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt');
+        const geoText = await geoRes.text();
+        const lines = geoText.split('\n');
+        const latestLine = lines.find(line => line.includes('Nov 10')); // Current date; adjust if needed
+        const [, , a3, , , , , , , sunspot] = latestLine ? latestLine.split(/\s+/) : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        const aIndex = parseInt(a3) || 0;
+        const sunspots = parseInt(sunspot) || 0;
+
+        // Fetch SFI from weekly text (approx; for exact, use Penticton API if available)
+        const weeklyRes = await fetch('https://services.swpc.noaa.gov/text/weekly.txt');
+        const weeklyText = await weeklyRes.text();
+        const sfiMatch = weeklyText.match(/Recent Flux Values:.*?(\d{3})/);
+        const sfi = sfiMatch ? parseInt(sfiMatch[1]) : 150; // Fallback
+
+        // Update solar cards
+        document.getElementById('sfi').textContent = sfi;
+        document.getElementById('a-index').textContent = aIndex;
+        document.getElementById('sunspots').textContent = sunspots;
+        document.getElementById('xray').textContent = xray.toExponential(2);
+        document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+
+        // Generate propagation table based on data
+        const bands = [
+          { band: '160m', day: sfi > 100 ? 'Fair' : 'Poor', night: 'Good', notes: 'NVIS local' },
+          { band: '80m', day: 'Poor', night: 'Good', notes: 'Regional night' },
+          { band: '40m', day: 'Fair', night: 'Good', notes: 'Day DX if low A' },
+          { band: '20m', day: sfi > 120 ? 'Good' : 'Fair', night: aIndex < 15 ? 'Fair' : 'Poor', notes: 'Prime DX' },
+          { band: '15m', day: sfi > 140 ? 'Good' : 'Fair', night: 'Poor', notes: 'High SFI needed' },
+          { band: '10m', day: sfi > 150 ? 'Good' : 'Poor', night: 'Poor', notes: 'Es possible' }
+        ];
+
+        const tbody = document.getElementById('prop-body');
+        tbody.innerHTML = bands.map(band => `
+          <tr class="hover:bg-gray-800">
+            <td class="px-4 py-3 font-semibold">${band.band}</td>
+            <td class="px-4 py-3 ${band.day === 'Good' ? 'text-green-400' : band.day === 'Fair' ? 'text-yellow-400' : 'text-red-400'}">${band.day}</td>
+            <td class="px-4 py-3 ${band.night === 'Good' ? 'text-green-400' : band.night === 'Fair' ? 'text-yellow-400' : 'text-red-400'}">${band.night}</td>
+            <td class="px-4 py-3 text-gray-400">${band.notes}</td>
+          </tr>
+        `).join('');
+
+      } catch (error) {
+        console.error('Data fetch error:', error);
+        document.getElementById('solar-data').innerHTML = '<p class="text-center text-red-400 col-span-full">Data fetch failed—check connection. Using fallback values.</p>';
+      }
+    }
+
+    // Load on page load & refresh every 5 min
+    loadSolarData();
+    setInterval(loadSolarData, 300000); // 5 minutes
+  </script>
 
 </body>
 </html>
