@@ -44,30 +44,30 @@
   <!-- Main Dashboard -->
   <section class="py-12 px-6 max-w-7xl mx-auto space-y-12">
 
-    <!-- HamQSL Solar Banner (Live Data) -->
+    <!-- HamQSL Solar Gadget (Small Vertical) -->
     <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
       <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">Live Solar-Terrestrial Data</h2>
       <div class="text-center">
         <iframe 
-          src="https://www.hamqsl.com/solarxml.php" 
+          src="https://www.hamqsl.com/solargadget.php" 
           width="100%" 
-          height="200" 
+          height="300" 
           frameborder="0" 
           scrolling="no"
           class="rounded-lg shadow-inner">
         </iframe>
       </div>
       <p class="text-center text-sm text-gray-500 mt-4">
-        SFI • A/K-Index • Sunspots • X-Ray • Auto-updates every 3 hours • Source: <a href="https://www.hamqsl.com" target="_blank" class="text-cyan-400 hover:underline">HamQSL (NOAA)</a>
+        SFI • A/K-Index • Sunspots • X-Ray Flux • Source: <a href="https://www.hamqsl.com" target="_blank" class="text-cyan-400 hover:underline">HamQSL (NOAA)</a>
       </p>
     </div>
 
-    <!-- HF Propagation Conditions -->
+    <!-- HamQSL VHF/HF Propagation Gadget (Large) -->
     <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
-      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">HF Band Propagation Forecast</h2>
+      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">HF/VHF Band Propagation Forecast</h2>
       <div class="text-center">
         <iframe 
-          src="https://www.hamqsl.com/solarvhfcond.php" 
+          src="https://www.hamqsl.com/solargadget1.php" 
           width="100%" 
           height="600" 
           frameborder="0" 
@@ -76,7 +76,7 @@
         </iframe>
       </div>
       <p class="text-center text-sm text-gray-500 mt-4">
-        Green = Open • Red = Closed • Day/Night estimates for 160m–10m • Source: <a href="https://www.hamqsl.com" target="_blank" class="text-cyan-400 hover:underline">HamQSL</a>
+        Green = Open • Red = Closed • Day/Night estimates for 160m–6m + VHF Es • Source: <a href="https://www.hamqsl.com" target="_blank" class="text-cyan-400 hover:underline">HamQSL</a>
       </p>
     </div>
 
