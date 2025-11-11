@@ -1,68 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Activities - W3BN</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activities | Reading Radio Club | W3BN</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css" />
+  <style> body { font-family: 'Inter', sans-serif; } .orbitron { font-family: 'Orbitron', monospace; } .glow { text-shadow: 0 0 10px #06b6d4; } </style>
 </head>
-<body>
-<header>
-  <img src="assets/logo.jpg" alt="RRC Logo" class="logo">
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="membership.html">Join</a></li>
-      <li><a href="activities.html">Activities</a></li>
-      <li><a href="nets.html">Nets</a></li>
-      <li><a href="social.html">Social</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+<body class="bg-gray-950 text-white min-h-screen">
+
+  <!-- Navbar (same, Activities bold) -->
+  <nav class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-cyan-900/50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold orbitron text-cyan-400 hover:glow transition">W3BN</a>
+      <ul class="flex space-x-6 text-sm flex-wrap justify-center">
+        <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
+        <li><a href="history.html" class="hover:text-cyan-400 transition">History</a></li>
+        <li><a href="membership.html" class="hover:text-cyan-400 transition">Membership</a></li>
+        <li><a href="activities.html" class="text-cyan-400 font-bold">Activities</a></li>
+        <li><a href="nets.html" class="hover:text-cyan-400 transition">Nets</a></li>
+        <li><a href="propagation.html" class="hover:text-cyan-400 transition">Propagation</a></li>
+        <li><a href="social.html" class="hover:text-cyan-400 transition">Social</a></li>
+        <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
+      </ul>
+    </div>
   </nav>
-</header>
 
-<section class="hero">
-  <h1>Club Activities</h1>
-  <p>Fox Hunts · POTA · Simplex Tests · VE Sessions</p>
-</section>
+  <!-- Content -->
+  <section class="pt-24 py-12 px-6 max-w-4xl mx-auto">
+    <h1 class="text-5xl font-black orbitron mb-8 text-center text-cyan-400 glow">Activities</h1>
+    <div class="bg-gray-900/50 rounded-xl p-8 border border-cyan-800/50 space-y-6">
+      <div>
+        <h3 class="text-2xl font-semibold mb-2">Field Day</h3>
+        <p class="text-gray-300">Annual June event — antennas, generators, and 24h ops. Last score: 5,000 points.</p>
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold mb-2">Public Service</h3>
+        <p class="text-gray-300">Marathons, parades, emergencies. W3BN links the front lines.</p>
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold mb-2">Club Builds</h3>
+        <p class="text-gray-300">QRP kits, antenna parties. Next: SatNOGS station.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="container">
-  <div class="card">
-    <h3>Monthly Simplex Test</h3>
-    <p>Saturday following the General Meeting<br>
-      <strong>Next Simplex Test:</strong> <span class="next-simplex">Loading...</span></p>
-    <p>Starts at 10:00 AM on 146.550 MHz simplex</p>
-    <p>Check in from anywhere in Berks County — great for testing mobile & HT coverage!</p>
-  </div>
+  <!-- Footer (same) -->
+  <footer class="mt-auto py-8 px-6 text-center text-gray-500 text-sm border-t border-gray-800">
+    <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
+    <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-cyan-400 hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-cyan-400 hover:underline">Member Login</a></p>
+  </footer>
 
-  <div class="card">
-    <h3>Fox Hunts</h3>
-    <p>Hidden transmitter hunts held several times a year<br>
-      Next one announced at General Meeting and on MOTA net</p>
-  </div>
-
-  <div class="card">
-    <h3>Parks on the Air (POTA)</h3>
-    <p>Club members activate local parks monthly<br>
-      All bands & modes welcome — portable fun!</p>
-  </div>
-
-  <div class="card">
-    <h3>VE Testing Sessions</h3>
-    <p>License exams held quarterly or by request<br>
-      Contact us to schedule your test!</p>
-    <a href="contact.html" class="btn">Schedule Exam</a>
-  </div>
-</div>
-
-<footer>
-  <p>© 2025 Reading Radio Club - W3BN</p>
-</footer>
-
-<!-- Auto-updating dates — works forever -->
-<script src="js/auto-dates.js" defer></script>
 </body>
 </html>
