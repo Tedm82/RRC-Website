@@ -4,13 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>History | Reading Radio Club | W3BN</title>
+  <meta name="description" content="Over 100 years of ham radio excellence. From 1921 to today — W3BN's legacy in emergency comms, education, and innovation." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style> body { font-family: 'Inter', sans-serif; } .orbitron { font-family: 'Orbitron', monospace; } .glow { text-shadow: 0 0 10px #06b6d4; } </style>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .orbitron { font-family: 'Orbitron', monospace; }
+    .glow { text-shadow: 0 0 10px #06b6d4, 0 0 20px #06b6d4; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, #06b6d4, transparent);
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      position: relative;
+      margin: 2rem 0;
+      width: 50%;
+    }
+    .timeline-item:nth-child(odd) { left: 0; }
+    .timeline-item:nth-child(even) { left: 50%; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 1rem;
+      width: 16px;
+      height: 16px;
+      background: #06b6d4;
+      border: 3px solid #164e63;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .timeline-item:nth-child(odd)::before { right: -8px; }
+    .timeline-item:nth-child(even)::before { left: -8px; }
+    @media (max-width: 768px) {
+      .timeline::before { left: 8px; }
+      .timeline-item { width: 100%; left: 0 !important; padding-left: 2rem; }
+      .timeline-item::before { left: 0; }
+    }
+  </style>
 </head>
 <body class="bg-gray-950 text-white min-h-screen">
 
-  <!-- Navbar (same as above) -->
+  <!-- Navbar -->
   <nav class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-cyan-900/50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <a href="index.html" class="text-2xl font-bold orbitron text-cyan-400 hover:glow transition">W3BN</a>
@@ -27,25 +67,126 @@
     </div>
   </nav>
 
-  <!-- Content -->
-  <section class="pt-24 py-12 px-6 max-w-4xl mx-auto">
-    <h1 class="text-5xl font-black orbitron mb-8 text-center text-cyan-400 glow">Club History</h1>
-    <div class="bg-gray-900/50 rounded-xl p-8 border border-cyan-800/50 prose prose-invert max-w-none">
-      <p>Founded in [Year], the Reading Radio Club has been a pillar of the Berks County ham community. From early vacuum tube rigs to modern digital modes, we've powered emergency comms and fostered lifelong friendships.</p>
-      <ul class="list-disc pl-6 space-y-2">
-        <li>1930s: First meetings in backrooms with crystal sets.</li>
-        <li>1960s: W3BN repeater goes on air atop Mt. Penn.</li>
-        <li>2020s: 93 members strong, embracing SDR and satellite ops.</li>
-      </ul>
-      <blockquote class="border-l-4 border-cyan-600 pl-4 italic">"Sparks across the ether since the Golden Age."</blockquote>
+  <!-- Hero -->
+  <section class="pt-24 pb-12 px-6 text-center bg-gradient-to-b from-gray-900 to-gray-950">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-cyan-400 glow">
+        100+ Years of W3BN
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        From spark-gap pioneers to modern digital ops — the legacy of the Reading Radio Club since 1921.
+      </p>
     </div>
   </section>
 
-  <!-- Footer (same as above) -->
-  <footer class="mt-auto py-8 px-6 text-center text-gray-500 text-sm border-t border-gray-800">
+  <!-- Timeline -->
+  <section class="py-12 px-6 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold orbitron text-center mb-12 glow text-cyan-400">Club Timeline</h2>
+    <div class="relative timeline max-w-5xl mx-auto">
+      
+      <div class="timeline-item nth-child-odd">
+        <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50 ml-0 mr-12 md:mr-20">
+          <h3 class="text-xl font-bold text-cyan-300">March 10, 1921</h3>
+          <p class="text-gray-300 mt-2">Reading Radio Club founded by ~35 wireless experimenters at the Reading Company YMCA (8th & Green St).</p>
+        </div>
+      </div>
+
+      <div class="timeline-item nth-child-even">
+        <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50 mr-0 ml-12 md:ml-20">
+          <h3 class="text-xl font-bold text-cyan-300">February 17, 1922</h3>
+          <p class="text-gray-300 mt-2">Affiliated with the <strong>ARRL</strong> — re-affirmed in March 1941.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item nth-child-odd">
+        <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50 ml-0 mr-12 md:mr-20">
+          <h3 class="text-xl font-bold text-cyan-300">1949</h3>
+          <p class="text-gray-300 mt-2">FCC assigns club call <strong>W3PFT</strong>.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item nth-child-even">
+        <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50 mr-0 ml-12 md:ml-20">
+          <h3 class="text-xl font-bold text-cyan-300">December 1956</h3>
+          <p class="text-gray-300 mt-2">Club <strong>incorporated in Pennsylvania</strong>. By-Laws adopted with 20 articles, defining officers and Board of Directors.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item nth-child-odd">
+        <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50 ml-0 mr-12 md:mr-20">
+          <h3 class="text-xl font-bold text-cyan-300">1964</h3>
+          <p class="text-gray-300 mt-2">Call sign changed to <strong>W3CCH</strong> in memory of <em>Stanton L. Bast, W3CCH</em>, longtime Secretary (d. 1957).</p>
+        </div>
+      </div>
+
+      <div class="timeline-item nth-child-even">
+        <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50 mr-0 ml-12 md:ml-20">
+          <h3 class="text-xl font-bold text-cyan-300">July 1965</h3>
+          <p class="text-gray-300 mt-2">Call sign changed to <strong>W3BN</strong> in memory of <em>James Marx, W3BN</em>, club president and benefactor (d. 1965).</p>
+        </div>
+      </div>
+
+      <div class="timeline-item nth-child-odd">
+        <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50 ml-0 mr-12 md:mr-20">
+          <h3 class="text-xl font-bold text-cyan-300">1990s–Today</h3>
+          <p class="text-gray-300 mt-2">93 members strong. VE team has administered <strong>85 test sessions</strong> and processed <strong>763 candidates</strong> in 30 years.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Legacy & Mission -->
+  <section class="py-12 px-6 max-w-5xl mx-auto space-y-12">
+
+    <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
+      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">Our Legacy</h2>
+      <p class="text-gray-300 leading-relaxed">
+        For over <strong>100 years</strong>, the Reading Radio Club has been at the forefront of radio experimentation, emergency communications, and technical education. Our members have contributed to the development of <strong>radio, television, and the electronics industry</strong>.
+      </p>
+      <p class="text-gray-300 mt-4 leading-relaxed">
+        We are <strong>amateurs</strong> because we are unpaid — but our service is <strong>professional</strong>. From disaster response to public events, W3BN provides reliable, rapid-deploy communications using repeaters, mobile units, and field stations.
+      </p>
+    </div>
+
+    <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
+      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">Education & Community</h2>
+      <div class="grid md:grid-cols-2 gap-6 text-gray-300">
+        <div>
+          <h3 class="text-xl font-semibold text-cyan-300 mb-2">Licensing</h3>
+          <p>Our FCC-certified VE team has helped <strong>763 hams</strong> earn their licenses. Many went on to advanced classes and careers in electronics.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-cyan-300 mb-2">Outreach</h3>
+          <p>We support science teachers with projects like <strong>high-altitude balloon tracking</strong>, DIY kits, and STEM demos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-cyan-900/20 to-purple-900/20 rounded-2xl p-8 border border-cyan-700/30">
+      <h3 class="text-2xl font-bold mb-4 orbitron text-cyan-300">Today & Tomorrow</h3>
+      <ul class="space-y-3 text-gray-300">
+        <li>Weekly on-air equipment tests — ready for emergencies 24/7</li>
+        <li>30-mile repeater coverage (146.820 MHz) — emergency power upgrade in progress</li>
+        <li>Monthly <em>Radio Club Bulletin</em> with tech tips and event calendar</li>
+        <li>Open meetings — all ages welcome, no membership required</li>
+        <li>Technical help, videos, and group projects</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-20 py-8 px-6 text-center text-gray-500 text-sm border-t border-gray-800">
     <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
-    <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-cyan-400 hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-cyan-400 hover:underline">Member Login</a></p>
+    <p class="mt-2">
+      <a href="https://arrl.org" target="_blank" class="text-cyan-400 hover:underline">ARRL</a> • 
+      <a href="https://hamclubonline.com" target="_blank" class="text-cyan-400 hover:underline">Member Login</a>
+    </p>
   </footer>
+
+  <!-- Auto-Dates -->
+  <script src="js/auto-dates.js"></script>
 
 </body>
 </html>
