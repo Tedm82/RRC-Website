@@ -13,10 +13,6 @@
     <link rel="stylesheet" href="styles.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        /* body { font-family: 'Inter', sans-serif; } */ /* Not needed, in styles.css */
-        /* .orbitron { font-family: 'Orbitron', monospace; } */ /* Not needed, in styles.css */
-        /* .glow { text-shadow: 0 0 10px #06b6d4, 0 0 20px #06b6d4; } */ /* Not needed, in styles.css */
-
         .timeline::before {
             content: '';
             position: absolute;
@@ -24,7 +20,6 @@
             bottom: 0;
             left: 50%;
             width: 2px;
-            /* --- CHANGED cyan to gold --- */
             background: linear-gradient(to bottom, transparent, var(--gold), transparent);
             transform: translateX(-50%);
         }
@@ -41,7 +36,6 @@
             top: 1rem;
             width: 16px;
             height: 16px;
-            /* --- CHANGED cyan/blue to gold/navy --- */
             background: var(--gold);
             border: 3px solid var(--navy);
             border-radius: 50%;
@@ -72,7 +66,7 @@
       <li><a href="index.html" class="hover:text-gold">Home</a></li>
 
       <li class="relative group">
-        <a href="#" class="hover:text-gold">
+        <a href="#" class="hover:text-gold whitespace-nowrap">
           About Us <i class="fas fa-chevron-down text-xs opacity-70"></i>
         </a>
         <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
@@ -83,13 +77,13 @@
       </li>
 
       <li class="relative group">
-        <a href="#" class="hover:text-gold">
+        <a href="#" class="hover:text-gold whitespace-nowrap">
           Activities <i class="fas fa-chevron-down text-xs opacity-70"></i>
         </a>
         <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
           <li><a href="activities.html" class="block px-4 py-2 hover:bg-slate-800">All Activities</a></li>
           <li><a href="nets.html" class="block px-4 py-2 hover:bg-slate-800">Nets & Meetings</a></li>
-          </ul>
+        </ul>
       </li>
 
       <li><a href="propagation.html" class="hover:text-gold">Propagation</a></li>
@@ -125,7 +119,7 @@
         <ul class="pl-4">
           <li><a href="activities.html" class="block py-2 hover:text-gold">All Activities</a></li>
           <li><a href="nets.html" class="block py-2 hover:text-gold">Nets & Meetings</a></li>
-          </ul>
+        </ul>
       </li>
 
       <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
@@ -196,12 +190,33 @@
 <section class="py-12 px-6 max-w-5xl mx-auto space-y-12">
 
     <div class="bg-navy-card rounded-2xl p-8 shadow-xl">
-        <h2 class="text-3xl font-bold orbitron text-gold mb-6 text-center">Our Legacy</h2> <p class="text-text leading-relaxed"> For over <strong>100 years</strong>, the Reading Radio Club has been at the forefront of radio experimentation, emergency communications, and technical education. Our members have contributed to the development of <strong>radio, television, and the electronics industry</strong>.
-    </p>
-        <p class="text-text mt-4 leading-relaxed"> We are <strong>amateurs</strong> because we are unpaid — but our service is <strong>professional</strong>. From disaster response to public events, W3BN provides reliable, rapid-deploy communications using repeaters, mobile units, and field stations.
-        </p>
-    </div>
-
+        <h2 class="text-3xl font-bold orbitron text-gold mb-6 text-center">Our Legacy</h2>
+    
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            
+            <div class="text-text leading-relaxed">
+                <p>
+                    For over <strong>100 years</strong>, the Reading Radio Club has been at the forefront of radio experimentation, emergency communications, and technical education. Our members have contributed to the development of <strong>radio, television, and the electronics industry</strong>.
+                </p>
+                <p class="mt-4">
+                    We are <strong>amateurs</strong> because we are unpaid — but our service is <strong>professional</strong>. From disaster response to public events, W3BN provides reliable, rapid-deploy communications using repeaters, mobile units, and field stations.
+                </p>
+            </div>
+            
+            <div>
+                <a href="assets/charter-1922.jpg" target="_blank" title="Click to view full-size charter">
+                    <img 
+                        src="assets/charter-1922.jpg" 
+                        alt="Original 1922 Charter for the Reading Radio Club" 
+                        class="w-full h-auto rounded-lg border border-gold/40 shadow-lg hover:opacity-90 transition-opacity"
+                    >
+                </a>
+                <p class="text-center text-muted text-sm mt-2">
+                    Our original ARRL charter from 1922. Click to enlarge.
+                </p>
+            </div>
+    
+        </div> </div>
     <div class="bg-navy-card rounded-2xl p-8 shadow-xl">
         <h2 class="text-3xl font-bold orbitron text-gold mb-6 text-center">Education & Community</h2> <div class="grid md:grid-cols-2 gap-6 text-text"> <div>
         <h3 class="text-xl font-semibold text-gold mb-2">Licensing</h3> <p>Our FCC-certified VE team has helped <strong>763 hams</strong> earn their licenses. Many went on to advanced classes and careers in electronics.</p>
@@ -214,14 +229,49 @@
 
     <div class="bg-navy-card rounded-2xl p-8 shadow-xl">
         <h3 class="text-2xl font-bold mb-4 orbitron text-gold">Today & Tomorrow</h3> <ul class="space-y-3 text-text"> <li>Weekly on-air equipment tests — ready for emergencies 24/7</li>
-        <li>30-mile repeater coverage (146.910 MHz) — emergency power upgrade in progress</li>
-        <li>Monthly <em>Radio Club Bulletin</em> with tech tips and event calendar</li>
-        <li>Open meetings — all ages welcome, no membership required</li>
-        <li>Technical help, videos, and group projects</li>
+            <li>30-mile repeater coverage (146.910 MHz) — emergency power upgrade in progress</li>
+            <li>Monthly <em>Radio Club Bulletin</em> with tech tips and event calendar</li>
+            <li>Open meetings — all ages welcome, no membership required</li>
+            <li>Technical help, videos, and group projects</li>
     </ul>
     </div>
-
-</section>
+    
+    <div class="bg-navy-card rounded-2xl p-8 shadow-xl">
+        
+        <h2 class="text-3xl font-bold orbitron text-gold mb-4 text-center">
+            The Silent Key Memorial
+        </h2>
+        
+        <p class="text-text text-center max-w-3xl mx-auto leading-relaxed mb-10">
+            In amateur radio, a "Silent Key" (SK) is an operator who has passed away. We honor the members who have contributed to our club and community, and whose signals are now silent.
+        </p>
+    
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4 text-text text-center">
+            
+            <div class="py-2 border-b border-gold/20">
+                <span class="font-bold text-gold">Stanton L. Bast, W3CCH</span>
+            </div>
+            
+            <div class="py-2 border-b border-gold/20">
+                <span class="font-bold text-gold">James Marx, W3BN</span>
+            </div>
+            
+            <div class="py-2 border-b border-gold/20">
+                <span class="font-bold text-gold opacity-50">...</span>
+            </div>
+            <div class="py-2 border-b border-gold/20">
+                <span class="font-bold text-gold opacity-50">...</span>
+            </div>
+            <div class="py-2 border-b border-gold/20">
+                <span class="font-bold text-gold opacity-50">...</span>
+            </div>
+            <div class="py-2 border-b border-gold/20">
+                <span class="font-bold text-gold opacity-50">...</span>
+            </div>
+    
+        </div>
+    </div>
+    </section>
 
 <footer class="mt-20 py-8 px-6 text-center text-muted text-sm border-t border-gold/40">
     <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
@@ -232,5 +282,6 @@
 </footer>
 
 <script src="js/auto-dates.js"></script>
-<script src="js/mobile-menu.js"></script> </body>
+<script src="js/mobile-menu.js"></script> 
+</body>
 </html>
