@@ -13,42 +13,77 @@
 <body class="min-h-screen flex flex-col">
 
 <nav class="fixed w-full z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="index.html" class="text-2xl font-bold orbitron text-gold">W3BN</a>
-        <ul class="hidden md:flex space-x-6 text-sm">
-            <li><a href="index.html" class="hover:text-gold">Home</a></li>
-            <li><a href="minutes.html" class="hover:text-gold">Minutes</a></li>
-            <li><a href="store.html" class="hover:text-gold">Store</a></li>
-            <li><a href="history.html" class="hover:text-gold">History</a></li>
-            <li><a href="membership.html" class="hover:text-gold">Membership</a></li>
-            <li><a href="activities.html" class="hover:text-gold">Activities</a></li>
-            <li><a href="nets.html" class="hover:text-gold">Nets</a></li>
-            <li><a href="propagation.html" class="hover:text-gold">Propagation</a></li>
-            <li><a href="social.html" class="hover:text-gold">Social</a></li>
-            <li><a href="board.html" class="hover:text-gold">Board and Committees</a></li>
-            <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-2xl font-bold orbitron text-gold">W3BN</a>
+    
+    <ul class="hidden md:flex space-x-6 text-sm">
+      <li><a href="index.html" class="hover:text-gold">Home</a></li>
+
+      <li class="relative group">
+        <a href="#" class="hover:text-gold">
+          About Us <i class="fas fa-chevron-down text-xs opacity-70"></i>
+        </a>
+        <ul class="absolute left-0 top-full hidden group-hover:block bg-navy border border-gold/40 py-2 rounded-lg w-48 shadow-lg mt-2">
+          <li><a href="history.html" class="block px-4 py-2 hover:bg-navy-dark">History</a></li>
+          <li><a href="board.html" class="block px-4 py-2 hover:bg-navy-dark">Leadership</a></li>
+          <li><a href="minutes.html" class="block px-4 py-2 hover:bg-navy-dark">Minutes & Bulletins</a></li>
         </ul>
-        <button id="menu-btn" class="md:hidden text-gold">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-        </button>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden">
-        <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
-            <li><a href="index.html" class="block py-2 hover:text-gold">Home</a></li>
-            <li><a href="minutes.html" class="block py-2 hover:text-gold">Minutes</a></li>
-            <li><a href="store.html" class="block py-2 hover:text-gold">Store</a></li>
-            <li><a href="history.html" class="block py-2 hover:text-gold">History</a></li>
-            <li><a href="membership.html" class="block py-2 hover:text-gold">Membership</a></li>
-            <li><a href="activities.html" class="block py-2 hover:text-gold">Activities</a></li>
-            <li><a href="nets.html" class="block py-2 hover:text-gold">Nets</a></li>
-            <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
-            <li><a href="social.html" class="block py-2 hover:text-gold">Social</a></li>
-            <li><a href="board.html" class="hover:text-gold">Board and Committees</a></li>
-            <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
+      </li>
+
+      <li class="relative group">
+        <a href="#" class="hover:text-gold">
+          Activities <i class="fas fa-chevron-down text-xs opacity-70"></i>
+        </a>
+        <ul class="absolute left-0 top-full hidden group-hover:block bg-navy border border-gold/40 py-2 rounded-lg w-48 shadow-lg mt-2">
+          <li><a href="activities.html" class="block px-4 py-2 hover:bg-navy-dark">All Activities</a></li>
+          <li><a href="nets.html" class="block px-4 py-2 hover:bg-navy-dark">Nets & Meetings</a></li>
+          <li><a href="propagation.html" class="block px-4 py-2 hover:bg-navy-dark">Propagation</a></li>
         </ul>
-    </div>
+      </li>
+
+      <li><a href="membership.html" class="hover:text-gold">Membership</a></li>
+      <li><a href="store.html" class="hover:text-gold">Store</a></li>
+      <li><a href="uploads.html" class="hover:text-gold">Uploads</a></li>
+      <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+    </ul>
+
+    <button id="menu-btn" class="md:hidden text-gold">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden">
+    <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
+      <li><a href="index.html" class="block py-2 hover:text-gold">Home</a></li>
+      
+      <li class="pt-2">
+        <span class="block py-2 text-gold font-bold orbitron text-xs">ABOUT US</span>
+        <ul class="pl-4">
+          <li><a href="history.html" class="block py-2 hover:text-gold">History</a></li>
+          <li><a href="board.html" class="block py-2 hover:text-gold">Leadership</a></li>
+          <li><a href="minutes.html" class="block py-2 hover:text-gold">Minutes & Bulletins</a></li>
+        </ul>
+      </li>
+
+      <li class="pt-2">
+        <span class="block py-2 text-gold font-bold orbitron text-xs">ACTIVITIES</span>
+        <ul class="pl-4">
+          <li><a href="activities.html" class="block py-2 hover:text-gold">All Activities</a></li>
+          <li><a href="nets.html" class="block py-2 hover:text-gold">Nets & Meetings</a></li>
+          <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
+        </ul>
+      </li>
+
+      <li class="pt-2 border-t border-gold/40">
+        <a href="membership.html" class="block py-2 hover:text-gold">Membership</a>
+      </li>
+      <li><a href="store.html" class="block py-2 hover:text-gold">Store</a></li>
+      <li><a href="uploads.html" class="block py-2 hover:text-gold">Uploads</a></li>
+      <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
 <section class="hero pt-24 pb-0 px-2 text-center">
