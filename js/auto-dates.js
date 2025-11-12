@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Simplex Test → Saturday after General Meeting
   const simplex = new Date(general);
   simplex.setDate(general.getDate() + ((6 - general.getDay() + 7) % 7 || 7));
-  simplex.setHours(10, 0, 0, 0);  // 10:00 AM (change if needed)
+  simplex.setHours(10, 0, 0, 0); // 10:00 AM (change if needed)
 
   // MOTA Net → Next Friday that is NOT the General Meeting Friday
   let candidate = new Date(now);
@@ -46,6 +46,26 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   if (candidate < now) candidate.setDate(candidate.getDate() + 7);
   const mota = candidate;
+
+  // NEW! Digital Modes Net → 3rd Thursday @ 8:00 PM
+  let digital = getNthWeekday(year, month, 4, 3); // 4=Thursday, 3=3rd
+  digital.setHours(20, 0, 0, 0); // 8:00 PM
+  if (digital < now) {
+    digital = getNthWeekday(year, month + 1, 4, 3);
+    digital.setHours(20, 0, 0, 0);
+  }
+  
+  // NEW! QCWA Net → Next Monday @ 9:00 PM
+  let qcwa = new Date(now);
+  const daysToMonday = (1 - now.getDay() + 7) % 7; // 1=Monday
+  qcwa.setDate(now.getDate() + daysToMonday);
+  qcwa.setHours(21, 0, 0, 0); // 9:00 PM
+  
+  // If it's Monday but 9 PM has already passed, get next Monday
+  if (daysToMonday === 0 && qcwa < now) {
+      qcwa.setDate(qcwa.getDate() + 7);
+  }
+
 
   function format(date) {
     return date.toLocaleDateString('en-US', {
@@ -60,4 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.next-board').forEach(el => el.textContent = format(board));
   document.querySelectorAll('.next-mota').forEach(el => el.textContent = format(mota));
   document.querySelectorAll('.next-simplex').forEach(el => el.textContent = format(simplex));
+  
+  // NEW! Add these two lines
+  document.querySelectorAll('.next-digital').forEach(el => el.textContent = format(digital));
+  document.querySelectorAll('.next-qcwa').forEach(el => el.textContent = format(qcwa));
 });
