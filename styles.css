@@ -1,227 +1,130 @@
-/* css/styles.css - W3BN Navy & Gold — CRISP & READABLE */
+/* styles.css – Navy & Gold + Flip Cards + Mobile Menu */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==== COLORS ==== */
 :root {
   --navy: #001F3F;
   --navy-dark: #0a1420;
   --gold: #FFD700;
   --gold-soft: #f9c400;
   --text: #f3f4f6;
+  --text-light: #e5e7eb;
   --text-muted: #9ca3af;
   --card-bg: rgba(30, 58, 95, 0.25);
   --border-gold: rgba(255, 215, 0, 0.4);
 }
 
-* { 
-  margin: 0; 
-  padding: 0; 
-  box-sizing: border-box; 
-}
+/* ==== FONTS ==== */
+.orbitron { @apply font-orbitron font-bold tracking-wider; }
 
+/* ==== BODY ==== */
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--navy-dark);
-  color: var(--text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply bg-navy-dark text-text min-h-screen;
 }
 
-.orbitron { 
-  font-family: 'Orbitron', monospace; 
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-/* --- MODIFICATION: Replaced glow with crisp text --- */
-.glow,
-.glow-sm,
-.text-gold {
-  color: var(--gold);
-  text-shadow: none;
-  filter: none;
-}
-
-/* Hero Title — Big & Bold */
-.hero h1 {
-  font-size: 3.5rem;
-  line-height: 1.1;
-}
-@media (min-width: 768px) {
-  .hero h1 { font-size: 5rem; }
-}
-
-/* Navbar */
+/* ==== NAVBAR ==== */
 nav {
-  background-color: rgba(0, 31, 63, 0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-gold);
+  @apply bg-black/80 backdrop-blur-md border-b border-cyan-900/50 fixed w-full z-50;
 }
-
-/* --- MODIFICATION: Changed nav link color to match theme --- */
 nav a {
-  color: var(--text-muted); /* Was #93c5fd */
-  transition: color 0.3s ease;
+  @apply text-gray-400 hover:text-gold transition;
 }
-nav a:hover, nav a.text-gold {
-  color: var(--gold) !important;
-}
-
-/* Cards */
-.bg-navy-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-gold);
-  border-radius: 1rem;
-  padding: 1.5rem;
+nav a.text-gold, nav .font-bold {
+  @apply text-gold;
 }
 
-/* Buttons */
-.btn-gold {
-  background-color: var(--gold);
-  color: var(--navy);
-  font-weight: 600;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-.btn-gold:hover {
-  background-color: #e6c200;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-.btn-outline-gold {
-  border: 2px solid var(--gold);
-  color: var(--gold);
-  font-weight: 600;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-}
-.btn-outline-gold:hover {
-  background-color: rgba(255, 215, 0, 0.15);
-  color: var(--gold);
-}
-
-/* Hero Background */
+/* ==== HERO ==== */
 .hero {
-  background: linear-gradient(rgba(0, 31, 63, 0.75), rgba(10, 20, 32, 0.9)), 
-              url('../assets/hero-bg.jpg') center/cover no-repeat;
-  min-height: 65vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem 1rem;
+  @apply pt-20 pb-12 px-6 text-center bg-gradient-to-b from-gray-900 to-gray-950;
+}
+.hero h1 {
+  @apply text-5xl md:text-7xl font-black orbitron text-white mb-4;
 }
 
-/* Timeline */
-.timeline::before {
-  background: linear-gradient(transparent, var(--gold), transparent);
+/* ==== CARDS (Quick Links & Activities) ==== */
+.navy-card {
+  @apply bg-gray-900/50 border border-cyan-800/50 rounded-xl p-6;
 }
-.timeline-item::before {
-  background: var(--gold);
-  border: 3px solid var(--navy);
-}
-
-/* Mobile Menu */
-#mobile-menu {
-  background-color: rgba(0, 31, 63, 0.97);
-  border-top: 1px solid var(--border-gold);
+.bg-navy-card {
+  @apply bg-gray-900/50 border border-gold/40 rounded-xl p-6;
 }
 
-/* === 3D FLIP CARDS — FIXED & MATCHED === */
+/* ==== BUTTONS ==== */
+.btn-gold {
+  @apply bg-gold hover:bg-gold-soft text-navy font-semibold px-8 py-4 rounded-lg transition;
+}
+.btn-outline-gold {
+  @apply border-2 border-gold text-gold hover:bg-gold/20 font-semibold px-8 py-4 rounded-lg transition;
+}
+
+/* ==== FLIP CARDS (Activities Page) ==== */
 .flip-card {
   perspective: 1000px;
-  height: 240px;
+  height: 220px;
   cursor: pointer;
 }
-
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
 }
-
 .flip-card:hover .flip-card-inner,
 .flip-card:focus-within .flip-card-inner {
   transform: rotateY(180deg);
 }
-
-/* FRONT & BACK — Solid, No Bleed */
 .flip-card-front,
 .flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 1rem;
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  border-radius: 1rem;
+  padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   border: 1px solid var(--border-gold);
 }
-
-/* FRONT — Clean Navy Slate */
 .flip-card-front {
   background-color: var(--card-bg);
-  color: var(--white);
+  color: var(--text-light);
 }
-
-/* BACK — Darker Slate, No Transparency */
 .flip-card-back {
-  background-color: #152238; /* Darker than front */
-  color: var(--light);
+  background-color: #152238;
+  color: var(--text-light);
   transform: rotateY(180deg);
 }
-
-/* Icons */
 .flip-card-front i {
-  color: var(--gold);
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  @apply text-gold text-5xl mb-4;
 }
-
-/* Text */
 .flip-card-front h3 {
-  color: var(--gold);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  @apply text-xl font-bold text-gold;
 }
 .flip-card-front p {
-  font-size: 0.875rem;
-  color: var(--light);
+  @apply text-sm text-light mt-2;
 }
-
-/* Back Text */
 .flip-card-back h4 {
-  color: var(--gold);
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  font-size: 1.1rem;
+  @apply font-bold text-gold mb-2 text-lg;
 }
 .flip-card-back p {
-  font-size: 0.875rem;
-  line-height: 1.5;
+  @apply text-sm leading-tight;
 }
 .flip-card-back a {
-  color: var(--gold-accent);
-  text-decoration: underline;
-}
-.flip-card-back a:hover {
-  color: var(--gold);
+  @apply text-gold-accent hover:underline;
 }
 
-/* Mobile: No Flip, Show Back */
+/* ==== MOBILE: Show Back Only ==== */
 @media (max-width: 768px) {
   .flip-card {
     height: auto;
-    min-height: 200px;
+    min-height: 180px;
   }
   .flip-card-inner {
     transform: none !important;
