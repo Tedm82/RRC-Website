@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social | Reading Radio Club | W3BN</title>
-   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css">
-  
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social | Reading Radio Club | W3BN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="bg-gray-950 text-white min-h-screen">
+<body class="min-h-screen flex flex-col">
 
-  <!-- Navbar (same, Social bold) -->
-  <nav class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-cyan-900/50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold orbitron text-cyan-400 hover:glow transition">W3BN</a>
-      <ul class="flex space-x-6 text-sm flex-wrap justify-center">
-        <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
-        <li><a href="history.html" class="hover:text-cyan-400 transition">History</a></li>
-        <li><a href="membership.html" class="hover:text-cyan-400 transition">Membership</a></li>
-        <li><a href="activities.html" class="hover:text-cyan-400 transition">Activities</a></li>
-        <li><a href="nets.html" class="hover:text-cyan-400 transition">Nets</a></li>
-        <li><a href="propagation.html" class="hover:text-cyan-400 transition">Propagation</a></li>
-        <li><a href="social.html" class="text-cyan-400 font-bold">Social</a></li>
-        <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Content -->
-  <section class="pt-24 py-12 px-6 max-w-4xl mx-auto">
-    <h1 class="text-5xl font-black orbitron mb-8 text-center text-cyan-400 glow">Social Media & QSL</h1>
-    <div class="bg-gray-900/50 rounded-xl p-8 border border-cyan-800/50 grid md:grid-cols-2 gap-6">
-      <div>
-        <h3 class="text-xl font-semibold mb-2">Follow Us</h3>
-        <ul class="space-y-2 text-gray-300">
-          <li><a href="https://x.com/readingradioclub" target="_blank" class="text-cyan-400 hover:underline">X (Twitter)</a></li>
-          <li><a href="https://www.facebook.com/groups/w3bn" target="_blank" class="text-cyan-400 hover:underline">Facebook Group</a></li>
-          <li><a href="mailto:info@readingradioclub.org" class="text-cyan-400 hover:underline">Email List</a></li>
+<nav class="fixed w-full z-50"> <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-2xl font-bold orbitron text-gold">W3BN</a>
+    <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="index.html" class="hover:text-gold">Home</a></li>
+        <li><a href="history.html" class="hover:text-gold">History</a></li>
+        <li><a href="membership.html" class="hover:text-gold">Membership</a></li>
+        <li><a href="activities.html" class="hover:text-gold">Activities</a></li>
+        <li><a href="nets.html" class="hover:text-gold">Nets</a></li>
+        <li><a href="propagation.html" class="hover:text-gold">Propagation</a></li>
+        <li><a href="social.html" class="text-gold font-bold">Social</a></li> <li><a href="uploads.html" class="hover:text-gold">Uploads</a></li> <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+    </ul>
+    <button id="menu-btn" class="md:hidden text-gold">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+</div>
+    <div id="mobile-menu" class="hidden md:hidden">
+        <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
+            <li><a href="index.html" class="block py-2 hover:text-gold">Home</a></li>
+            <li><a href="history.html" class="block py-2 hover:text-gold">History</a></li>
+            <li><a href="membership.html" class="block py-2 hover:text-gold">Membership</a></li>
+            <li><a href="activities.html" class="block py-2 hover:text-gold">Activities</a></li>
+            <li><a href="nets.html" class="block py-2 hover:text-gold">Nets</a></li>
+            <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
+            <li><a href="social.html" class="block py-2 text-gold font-bold">Social</a></li> <li><a href="uploads.html" class="block py-2 hover:text-gold">Uploads</a></li> <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
         </ul>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">QSL Gallery</h3>
-        <p class="text-gray-300">Share your DX cards! Upload to our shared drive.</p>
-        <a href="https://drive.google.com" target="_blank" class="text-cyan-400 hover:underline">Gallery →</a>
-      </div>
     </div>
-  </section>
+</nav>
 
-  <!-- Footer (same) -->
-  <footer class="mt-auto py-8 px-6 text-center text-gray-500 text-sm border-t border-gray-800">
+<section class="pt-24 py-12 px-6 max-w-4xl mx-auto flex-grow">
+    <h1 class="text-5xl font-black orbitron mb-8 text-center text-gold">Social Media & QSL</h1> <div class="bg-navy-card p-8 grid md:grid-cols-2 gap-6">
+    <div>
+        <h3 class="text-xl font-semibold mb-2 text-gold">Follow Us</h3> <ul class="space-y-2"> <li><a href="https://x.com/readingradioclub" target="_blank" class="text-gold hover:underline">X (Twitter)</a></li>
+        <li><a href="https://www.facebook.com/groups/w3bn" target="_blank" class="text-gold hover:underline">Facebook Group</a></li>
+        <li><a href="mailto:info@readingradioclub.org" class="text-gold hover:underline">Email List</a></li>
+    </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold mb-2 text-gold">QSL Gallery</h3> <p>Share your DX cards! Upload to our shared drive.</p> <a href="uploads.html" class="text-gold hover:underline">Upload Here →</a> </div>
+</div>
+</section>
+
+<footer class="py-8 px-6 text-center text-muted text-sm border-t border-gold/40">
     <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
-    <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-cyan-400 hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-cyan-400 hover:underline">Member Login</a></p>
-  </footer>
+    <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-gold hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-gold hover:underline">Member Login</a></p>
+</footer>
 
-</body>
-</html>>
-
-<script src="js/auto-dates.js" defer></script>
-</body>
+<script src="js/auto-dates.js"></script>
+<script src="js/mobile-menu.js"></script> </body>
 </html>

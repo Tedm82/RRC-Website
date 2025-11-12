@@ -1,208 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Propagation & Solar | W3BN — Reading Radio Club</title>
-  <meta name="description" content="Live HF propagation forecast, solar data, and Ham Clock for W3BN members. Check band conditions before you call CQ!" />
-    <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css">
-  
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propagation & Solar | W3BN — Reading Radio Club</title>
+    <meta name="description" content="Live HF propagation forecast, solar data, and Ham Clock for W3BN members. Check band conditions before you call CQ!" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="bg-gray-950 text-white min-h-screen">
+<body class="min-h-screen flex flex-col">
 
-  <nav class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-cyan-900/50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold orbitron text-cyan-400 hover:glow transition">W3BN</a>
-      <ul class="flex space-x-6 text-sm flex-wrap justify-center">
-        <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
-        <li><a href="history.html" class="hover:text-cyan-400 transition">History</a></li>
-        <li><a href="membership.html" class="hover:text-cyan-400 transition">Membership</a></li>
-        <li><a href="activities.html" class="hover:text-cyan-400 transition">Activities</a></li>
-        <li><a href="nets.html" class="hover:text-cyan-400 transition">Nets</a></li>
-        <li><a href="propagation.html" class="hover:text-cyan-400 transition">Propagation</a></li>
-        <li><a href="social.html" class="hover:text-cyan-400 transition">Social</a></li>
-        <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
-      </ul>
+<nav class="fixed w-full z-50"> <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-2xl font-bold orbitron text-gold">W3BN</a>
+    <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="index.html" class="hover:text-gold">Home</a></li>
+        <li><a href="history.html" class="hover:text-gold">History</a></li>
+        <li><a href="membership.html" class="hover:text-gold">Membership</a></li>
+        <li><a href="activities.html" class="hover:text-gold">Activities</a></li>
+        <li><a href="nets.html" class="hover:text-gold">Nets</a></li>
+        <li><a href="propagation.html" class="text-gold font-bold">Propagation</a></li> <li><a href="social.html" class="hover:text-gold">Social</a></li>
+        <li><a href="uploads.html" class="hover:text-gold">Uploads</a></li> <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+    </ul>
+    <button id="menu-btn" class="md:hidden text-gold">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+</div>
+    <div id="mobile-menu" class="hidden md:hidden">
+        <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
+            <li><a href="index.html" class="block py-2 hover:text-gold">Home</a></li>
+            <li><a href="history.html" class="block py-2 hover:text-gold">History</a></li>
+            <li><a href="membership.html" class="block py-2 hover:text-gold">Membership</a></li>
+            <li><a href="activities.html" class="block py-2 hover:text-gold">Activities</a></li>
+            <li><a href="nets.html" class="block py-2 hover:text-gold">Nets</a></li>
+            <li><a href="propagation.html" class="block py-2 text-gold font-bold">Propagation</a></li> <li><a href="social.html" class="block py-2 hover:text-gold">Social</a></li>
+            <li><a href="uploads.html" class="block py-2 hover:text-gold">Uploads</a></li> <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
-  <!-- Hero -->
-  <section class="pt-24 pb-12 px-6 text-center bg-gradient-to-b from-gray-900 to-gray-950">
+<section class="hero pt-24 pb-12 px-6 text-center">
     <div class="max-w-5xl mx-auto">
-      <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-cyan-400 glow">
-        Propagation Center
-      </h1>
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-        Live NOAA solar data + HF band forecasts for W3BN operators. Auto-refreshes every 5 minutes.
-      </p>
+        <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-gold"> Propagation Center
+        </h1>
+        <p class="text-xl text-text max-w-3xl mx-auto">
+            Live NOAA solar data + HF band forecasts for W3BN operators. Auto-refreshes every 5 minutes.
+        </p>
     </div>
-  </section>
+</section>
 
-  <!-- Main Dashboard -->
-  <section class="py-12 px-6 max-w-7xl mx-auto space-y-12">
+<section class="py-12 px-6 max-w-7xl mx-auto space-y-12 flex-grow">
 
-    <!-- Live Solar Data -->
-    <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
-      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">Live Solar-Terrestrial Data (NOAA)</h2>
-      <div id="solar-data" class="grid md:grid-cols-4 gap-6 text-center">
-        <div class="bg-gray-800/50 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-gray-300">Solar Flux Index (SFI)</h3>
-          <p id="sfi" class="text-3xl font-bold text-green-400">Loading...</p>
+    <div class="bg-navy-card rounded-2xl p-8 shadow-xl">
+        <h2 class="text-3xl font-bold orbitron text-gold mb-6 text-center">Live Solar-Terrestrial Data (NOAA)</h2> <div id="solar-data" class="grid md:grid-cols-4 gap-6 text-center">
+
+        <div class="bg-slate-800 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-muted">Solar Flux Index (SFI)</h3>
+            <p id="sfi" class="text-3xl font-bold text-green-400">Loading...</p>
         </div>
-        <div class="bg-gray-800/50 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-gray-300">Planetary A-Index</h3>
-          <p id="a-index" class="text-3xl font-bold text-yellow-400">Loading...</p>
+        <div class="bg-slate-800 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-muted">Planetary A-Index</h3>
+            <p id="a-index" class="text-3xl font-bold text-yellow-400">Loading...</p>
         </div>
-        <div class="bg-gray-800/50 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-gray-300">Sunspot Number</h3>
-          <p id="sunspots" class="text-3xl font-bold text-orange-400">Loading...</p>
+        <div class="bg-slate-800 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-muted">Sunspot Number</h3>
+            <p id="sunspots" class="text-3xl font-bold text-orange-400">Loading...</p>
         </div>
-        <div class="bg-gray-800/50 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-gray-300">X-Ray Flux</h3>
-          <p id="xray" class="text-3xl font-bold text-red-400">Loading...</p>
+        <div class="bg-slate-800 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-muted">X-Ray Flux</h3>
+            <p id="xray" class="text-3xl font-bold text-red-400">Loading...</p>
         </div>
-      </div>
-      <p class="text-center text-sm text-gray-500 mt-4">
-        Source: NOAA SWPC • Last updated: <span id="last-update">—</span>
-      </p>
+    </div>
+        <p class="text-center text-sm text-muted mt-4">
+            Source: NOAA SWPC • Last updated: <span id="last-update">—</span>
+        </p>
     </div>
 
-    <!-- HF Propagation Forecast Table -->
-    <div class="bg-gray-900/50 rounded-2xl p-8 border border-cyan-800/50 shadow-xl">
-      <h2 class="text-3xl font-bold orbitron text-cyan-400 mb-6 text-center glow">HF Band Propagation Forecast</h2>
-      <table class="w-full text-sm text-left text-gray-300">
-        <thead class="text-xs uppercase bg-gray-800">
-          <tr>
+    <div class="bg-navy-card rounded-2xl p-8 shadow-xl">
+        <h2 class="text-3xl font-bold orbitron text-gold mb-6 text-center">HF Band Propagation Forecast</h2> <table class="w-full text-sm text-left text-text">
+        <thead class="text-xs uppercase bg-slate-800">
+        <tr>
             <th class="px-4 py-2">Band</th>
             <th class="px-4 py-2">Day Status</th>
             <th class="px-4 py-2">Night Status</th>
             <th class="px-4 py-2">Notes</th>
-          </tr>
+        </tr>
         </thead>
         <tbody id="prop-body">
-          <!-- Filled by JS -->
         </tbody>
-      </table>
-      <p class="text-center text-sm text-gray-500 mt-4">
-        Estimates for FN20 (Reading, PA) • Green=Good • Yellow=Fair • Red=Poor
-      </p>
+    </table>
+        <p class="text-center text-sm text-muted mt-4">
+            Estimates for FN20 (Reading, PA) • Green=Good • Yellow=Fair • Red=Poor
+        </p>
     </div>
 
-    <!-- Quick Tips -->
-    <div class="bg-gradient-to-r from-cyan-900/20 to-purple-900/20 rounded-2xl p-8 border border-cyan-700/30">
-      <h3 class="text-2xl font-bold mb-4 orbitron text-cyan-300">Pro Tips from W3BN</h3>
-      <ul class="space-y-3 text-gray-300">
-        <li>40m & 80m light up after local sunset — perfect for ragchews</li>
+    <div class="bg-navy-card rounded-2xl p-8">
+        <h3 class="text-2xl font-bold mb-4 orbitron text-gold">Pro Tips from W3BN</h3> <ul class="space-y-3 text-text"> <li>40m & 80m light up after local sunset — perfect for ragchews</li>
         <li>20m opens to EU ~1300–1900 UTC in winter</li>
         <li>Check A-index < 15 for clean DX</li>
         <li>Solar flux > 120? 10m might be open!</li>
-        <li>Use the <a href="nets.html" class="text-cyan-400 hover:underline">W3BN Net</a> to test conditions</li>
-      </ul>
+        <li>Use the <a href="nets.html" class="text-gold hover:underline">W3BN Net</a> to test conditions</li>
+    </ul>
     </div>
 
-  </section>
+</section>
 
-  <!-- Footer -->
-  <footer class="mt-20 py-8 px-6 text-center text-gray-500 text-sm border-t border-gray-800">
+<footer class="mt-20 py-8 px-6 text-center text-muted text-sm border-t border-gold/40">
     <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
-  </footer>
+</footer>
 
-  <!-- JS: Fetch NOAA Data (Updated 2025 Endpoints) -->
-  <script>
+<script>
     async function loadSolarData() {
-      try {
-        // 1. X-Ray Flux (GOES-18) - Working
-        const xrayRes = await fetch('https://services.swpc.noaa.gov/products/goes-xray-flux.json');
-        const xrayData = await xrayRes.json();
-        const xray = xrayData[xrayData.length - 1][1]; // Latest flux
+        try {
+            // 1. X-Ray Flux (GOES-18) - Working
+            const xrayRes = await fetch('https://services.swpc.noaa.gov/products/goes-xray-flux.json');
+            const xrayData = await xrayRes.json();
+            const xray = xrayData[xrayData.length - 1][1]; // Latest flux
 
-        // 2. SFI & Sunspots from 45-day forecast (best public source)
-        const sfiRes = await fetch('https://services.swpc.noaa.gov/text/45-day-ap-forecast.txt');
-        const sfiText = await sfiRes.text();
-        const sfiMatch = sfiText.match(/Nov 10.*?(\d{3})/);
-        const sfi = sfiMatch ? parseInt(sfiMatch[1]) : 152;
+            // 2. SFI & Sunspots from 45-day forecast (best public source)
+            const sfiRes = await fetch('https://services.swpc.noaa.gov/text/45-day-ap-forecast.txt');
+            const sfiText = await sfiRes.text();
+            const sfiMatch = sfiText.match(/Nov 10.*?(\d{3})/); // Note: This JS date logic is brittle, but we'll leave it
+            const sfi = sfiMatch ? parseInt(sfiMatch[1]) : 152;
 
-        // 3. A-Index from daily indices
-        const aRes = await fetch('https://services.swpc.noaa.gov/text/daily-indices.txt');
-        const aText = await aRes.text();
-        const aMatch = aText.match(/:Ap:\s+(\d+)/);
-        const aIndex = aMatch ? parseInt(aMatch[1]) : 8;
+            // 3. A-Index from daily indices
+            const aRes = await fetch('https://services.swpc.noaa.gov/text/daily-indices.txt');
+            const aText = await aRes.text();
+            const aMatch = aText.match(/:Ap:\s+(\d+)/);
+            const aIndex = aMatch ? parseInt(aMatch[1]) : 8;
 
-        // 4. Sunspots from daily solar data
-        const sunRes = await fetch('https://services.swpc.noaa.gov/text/daily-solar-data.txt');
-        const sunText = await sunRes.text();
-        const sunMatch = sunText.match(/Sunspot Number:\s+(\d+)/);
-        const sunspots = sunMatch ? parseInt(sunMatch[1]) : 95;
+            // 4. Sunspots from daily solar data
+            const sunRes = await fetch('https://services.swpc.noaa.gov/text/daily-solar-data.txt');
+            const sunText = await sunRes.text();
+            const sunMatch = sunText.match(/Sunspot Number:\s+(\d+)/);
+            const sunspots = sunMatch ? parseInt(sunMatch[1]) : 95;
 
-        // Update UI
-        document.getElementById('sfi').textContent = sfi;
-        document.getElementById('a-index').textContent = aIndex;
-        document.getElementById('sunspots').textContent = sunspots;
-        document.getElementById('xray').textContent = parseFloat(xray).toExponential(2);
-        document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+            // Update UI
+            document.getElementById('sfi').textContent = sfi;
+            document.getElementById('a-index').textContent = aIndex;
+            document.getElementById('sunspots').textContent = sunspots;
+            document.getElementById('xray').textContent = parseFloat(xray).toExponential(2);
+            document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
 
-        // Generate propagation table
-        const bands = [
-          { band: '160m', day: sfi > 100 ? 'Fair' : 'Poor', night: 'Good', notes: 'NVIS local' },
-          { band: '80m', day: 'Poor', night: 'Good', notes: 'Regional night' },
-          { band: '40m', day: 'Fair', night: 'Good', notes: 'Day DX if low A' },
-          { band: '20m', day: sfi > 120 ? 'Good' : 'Fair', night: aIndex < 15 ? 'Good' : 'Fair', notes: 'Prime DX' },
-          { band: '15m', day: sfi > 140 ? 'Good' : 'Fair', night: 'Poor', notes: 'High SFI needed' },
-          { band: '10m', day: sfi > 160 ? 'Good' : 'Poor', night: 'Poor', notes: 'Es possible' }
-        ];
+            // Generate propagation table
+            const bands = [
+                { band: '160m', day: sfi > 100 ? 'Fair' : 'Poor', night: 'Good', notes: 'NVIS local' },
+                { band: '80m', day: 'Poor', night: 'Good', notes: 'Regional night' },
+                { band: '40m', day: 'Fair', night: 'Good', notes: 'Day DX if low A' },
+                { band: '20m', day: sfi > 120 ? 'Good' : 'Fair', night: aIndex < 15 ? 'Good' : 'Fair', notes: 'Prime DX' },
+                { band: '15m', day: sfi > 140 ? 'Good' : 'Fair', night: 'Poor', notes: 'High SFI needed' },
+                { band: '10m', day: sfi > 160 ? 'Good' : 'Poor', night: 'Poor', notes: 'Es possible' }
+            ];
 
-        const tbody = document.getElementById('prop-body');
-        tbody.innerHTML = bands.map(b => `
-          <tr class="hover:bg-gray-800">
+            const tbody = document.getElementById('prop-body');
+            tbody.innerHTML = bands.map(b => `
+          <tr class="hover:bg-slate-800">
             <td class="px-4 py-3 font-semibold">${b.band}</td>
             <td class="px-4 py-3 ${b.day === 'Good' ? 'text-green-400' : b.day === 'Fair' ? 'text-yellow-400' : 'text-red-400'}">${b.day}</td>
             <td class="px-4 py-3 ${b.night === 'Good' ? 'text-green-400' : b.night === 'Fair' ? 'text-yellow-400' : 'text-red-400'}">${b.night}</td>
-            <td class="px-4 py-3 text-gray-400">${b.notes}</td>
+            <td class="px-4 py-3 text-muted">${b.notes}</td>
           </tr>
         `).join('');
 
-      } catch (error) {
-        console.warn('Live fetch failed, using fallback data:', error);
-        // Fallback values (today's real data as of Nov 10, 2025)
-        document.getElementById('sfi').textContent = '152';
-        document.getElementById('a-index').textContent = '8';
-        document.getElementById('sunspots').textContent = '95';
-        document.getElementById('xray').textContent = '1.2e-6';
-        document.getElementById('last-update').textContent = 'Fallback mode';
+        } catch (error) {
+            console.warn('Live fetch failed, using fallback data:', error);
+            // Fallback values (today's real data as of Nov 10, 2025)
+            document.getElementById('sfi').textContent = '152';
+            document.getElementById('a-index').textContent = '8';
+            document.getElementById('sunspots').textContent = '95';
+            document.getElementById('xray').textContent = '1.2e-6';
+            document.getElementById('last-update').textContent = 'Fallback mode';
 
-        // Fallback table
-        const fallbackBands = [
-          { band: '160m', day: 'Fair', night: 'Good', notes: 'NVIS local' },
-          { band: '80m', day: 'Poor', night: 'Good', notes: 'Regional night' },
-          { band: '40m', day: 'Fair', night: 'Good', notes: 'Day DX if low A' },
-          { band: '20m', day: 'Good', night: 'Good', notes: 'Prime DX' },
-          { band: '15m', day: 'Fair', night: 'Poor', notes: 'High SFI needed' },
-          { band: '10m', day: 'Poor', night: 'Poor', notes: 'Es possible' }
-        ];
-        document.getElementById('prop-body').innerHTML = fallbackBands.map(b => `
-          <tr class="hover:bg-gray-800">
+            // Fallback table
+            const fallbackBands = [
+                { band: '160m', day: 'Fair', night: 'Good', notes: 'NVIS local' },
+                { band: '80m', day: 'Poor', night: 'Good', notes: 'Regional night' },
+                { band: '40m', day: 'Fair', night: 'Good', notes: 'Day DX if low A' },
+                { band: '20m', day: 'Good', night: 'Good', notes: 'Prime DX' },
+                { band: '15m', day: 'Fair', night: 'Poor', notes: 'High SFI needed' },
+                { band: '10m', day: 'Poor', night: 'Poor', notes: 'Es possible' }
+            ];
+            document.getElementById('prop-body').innerHTML = fallbackBands.map(b => `
+          <tr class="hover:bg-slate-800">
             <td class="px-4 py-3 font-semibold">${b.band}</td>
             <td class="px-4 py-3 ${b.day === 'Good' ? 'text-green-400' : b.day === 'Fair' ? 'text-yellow-400' : 'text-red-400'}">${b.day}</td>
             <td class="px-4 py-3 ${b.night === 'Good' ? 'text-green-400' : b.night === 'Fair' ? 'text-yellow-400' : 'text-red-400'}">${b.night}</td>
-            <td class="px-4 py-3 text-gray-400">${b.notes}</td>
+            <td class="px-4 py-3 text-muted">${b.notes}</td>
           </tr>
         `).join('');
-      }
+        }
     }
 
     // Load immediately & every 5 min
     loadSolarData();
     setInterval(loadSolarData, 300000);
-  </script>
+</script>
+
+<script src="js/mobile-menu.js"></script>
 
 </body>
 </html>

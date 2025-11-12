@@ -1,74 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Membership | Reading Radio Club | W3BN</title>
-   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css">
-  
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership | Reading Radio Club | W3BN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="bg-gray-950 text-white min-h-screen">
+<body class="min-h-screen flex flex-col">
 
-  <!-- Navbar (same, with Membership bold) -->
-  <nav class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-cyan-900/50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold orbitron text-cyan-400 hover:glow transition">W3BN</a>
-      <ul class="flex space-x-6 text-sm flex-wrap justify-center">
-        <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
-        <li><a href="history.html" class="hover:text-cyan-400 transition">History</a></li>
-        <li><a href="membership.html" class="text-cyan-400 font-bold">Membership</a></li>
-        <li><a href="activities.html" class="hover:text-cyan-400 transition">Activities</a></li>
-        <li><a href="nets.html" class="hover:text-cyan-400 transition">Nets</a></li>
-        <li><a href="propagation.html" class="hover:text-cyan-400 transition">Propagation</a></li>
-        <li><a href="social.html" class="hover:text-cyan-400 transition">Social</a></li>
-        <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
-      </ul>
+<nav class="fixed w-full z-50"> <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-2xl font-bold orbitron text-gold">W3BN</a>
+    <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="index.html" class="hover:text-gold">Home</a></li>
+        <li><a href="history.html" class="hover:text-gold">History</a></li>
+        <li><a href="membership.html" class="text-gold font-bold">Membership</a></li> <li><a href="activities.html" class="hover:text-gold">Activities</a></li>
+        <li><a href="nets.html" class="hover:text-gold">Nets</a></li>
+        <li><a href="propagation.html" class="hover:text-gold">Propagation</a></li>
+        <li><a href="social.html" class="hover:text-gold">Social</a></li>
+        <li><a href="uploads.html" class="hover:text-gold">Uploads</a></li>
+        <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+    </ul>
+    <button id="menu-btn" class="md:hidden text-gold">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+</div>
+    <div id="mobile-menu" class="hidden md:hidden">
+        <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
+            <li><a href="index.html" class="block py-2 hover:text-gold">Home</a></li>
+            <li><a href="history.html" class="block py-2 hover:text-gold">History</a></li>
+            <li><a href="membership.html" class="block py-2 text-gold font-bold">Membership</a></li> <li><a href="activities.html" class="block py-2 hover:text-gold">Activities</a></li>
+            <li><a href="nets.html" class="block py-2 hover:text-gold">Nets</a></li>
+            <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
+            <li><a href="social.html" class="block py-2 hover:text-gold">Social</a></li>
+            <li><a href="uploads.html" class="block py-2 hover:text-gold">Uploads</a></li>
+            <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
-  <!-- Content -->
-  <section class="pt-24 py-12 px-6 max-w-4xl mx-auto">
-    <h1 class="text-5xl font-black orbitron mb-8 text-center text-cyan-400 glow">Membership</h1>
-    <div class="bg-gray-900/50 rounded-xl p-8 border border-cyan-800/50">
-      <p class="text-xl mb-6">93 active members from Tech to Extra. Dues: $25/year. Benefits: Nets, events, repeater access, and 73s from friends.</p>
-      <div class="grid md:grid-cols-2 gap-6 mb-6">
+<section class="pt-24 py-12 px-6 max-w-4xl mx-auto flex-grow">
+    <h1 class="text-5xl font-black orbitron mb-8 text-center text-gold">Membership</h1> <div class="bg-navy-card rounded-xl p-8">
+    <p class="text-xl mb-6">93 active members from Tech to Extra. Dues: $25/year. Benefits: Nets, events, repeater access, and 73s from friends.</p>
+    <div class="grid md:grid-cols-2 gap-6 mb-6">
         <div>
-          <h3 class="text-lg font-semibold mb-2">How to Join</h3>
-          <ol class="list-decimal pl-6 space-y-2 text-gray-300">
-            <li>Get licensed (ARRL resources).</li>
-            <li>Attend a net or meeting.</li>
-            <li>Fill form below.</li>
-          </ol>
+            <h3 class="text-xl font-semibold mb-2 text-gold">How to Join</h3>
+            <ol class="list-decimal pl-6 space-y-2">
+                <li>Get licensed (ARRL resources).</li>
+                <li>Attend a net or meeting.</li>
+                <li>Fill form below.</li>
+            </ol>
         </div>
         <div>
-          <h3 class="text-lg font-semibold mb-2">Member Login</h3>
-          <a href="https://hamclubonline.com/login.php?club=READINGRADIOCLUB" target="_blank" class="block px-4 py-2 bg-green-600 hover:bg-green-500 rounded text-center">Login</a>
+            <h3 class="text-xl font-semibold mb-2 text-gold">Member Login</h3>
+            <a href="https://hamclubonline.com/login.php?club=READINGRADIOCLUB" target="_blank" class="block btn-outline-gold text-center">Login</a>
         </div>
-      </div>
-      <!-- Simple Form -->
-      <form action="https://formspree.io/f/YOUR-ENDPOINT" method="POST" class="space-y-4">
-        <input type="text" name="name" placeholder="Callsign/Name" class="w-full px-4 py-3 bg-gray-800 rounded text-white" required>
-        <input type="email" name="email" placeholder="Email" class="w-full px-4 py-3 bg-gray-800 rounded text-white" required>
-        <button type="submit" class="w-full px-8 py-4 bg-cyan-600 hover:bg-cyan-500 rounded font-semibold">Join W3BN</button>
-      </form>
     </div>
-  </section>
 
-  <!-- Footer (same) -->
-  <footer class="mt-auto py-8 px-6 text-center text-gray-500 text-sm border-t border-gray-800">
+    <form action="https://formspree.io/f/YOUR-ENDPOINT" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Callsign/Name" class="w-full px-4 py-3 bg-slate-800 border border-gold/40 rounded text-text placeholder:text-muted" required>
+        <input type="email" name="email" placeholder="Email" class="w-full px-4 py-3 bg-slate-800 border border-gold/40 rounded text-text placeholder:text-muted" required>
+
+        <button type="submit" class="w-full btn-gold">Join W3BN</button>
+    </form>
+</div>
+</section>
+
+<footer class="py-8 px-6 text-center text-muted text-sm border-t border-gold/40">
     <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
-    <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-cyan-400 hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-cyan-400 hover:underline">Member Login</a></p>
-  </footer>
+    <p class="mt-2"><a href="https.arrl.org" target="_blank" class="text-gold hover:underline">ARRL</a> • <a href="https.hamclubonline.com" target="_blank" class="text-gold hover:underline">Member Login</a></p>
+</footer>
+
+<script src="js/mobile-menu.js"></script>
 
 </body>
 </html>
-
