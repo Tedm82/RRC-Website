@@ -6,21 +6,16 @@
   <title>Activities | Reading Radio Club | W3BN</title>
   <meta name="description" content="Field Day, Fox Hunts, POTA, VE Testing, Digital Nets — W3BN does it all." />
   
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
   
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="bg-navy-bg text-text">
+<body>
 
-  <!-- Navbar -->
   <nav class="fixed w-full z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <a href="index.html" class="text-2xl font-bold orbitron text-gold">W3BN</a>
@@ -56,200 +51,258 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero pt-20 pb-12 px-6 text-center">
+  <section class="hero pt-24 pb-0 px-2 text-center">
     <div class="max-w-5xl mx-auto">
-      <h1 class="font-black orbitron mb-4">Club Activities</h1>
-      <p class="text-xl text-light mb-8 max-w-3xl mx-auto">
+      <h1 class="font-black orbitron mb-4 text-gold">Club Activities</h1>
+      <p class="text-xl text-text mb-8 max-w-3xl mx-auto">
         From Field Day to Fox Hunts — W3BN is always on the air.
       </p>
     </div>
   </section>
 
-  <!-- Interactive 3D Card Grid -->
   <section class="py-12 px-6 max-w-7xl mx-auto">
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      <!-- Digital Modes -->
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front bg-navy-card rounded-xl p-6 border border-gold/40 flex flex-col items-center justify-center text-center">
+          <div class="flip-card-front">
             <i class="fas fa-digital-tachograph text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">Digital Modes Net</h3>
-            <p class="text-sm text-light mt-2">3rd Thursday @ 8:00 PM</p>
+            <p class="text-sm text-text mt-2">3rd Thursday @ 8:00 PM</p>
           </div>
-          <div class="flip-card-back bg-navy-card rounded-xl p-6 border border-gold/40 text-left">
-            <h4 class="font-bold text-gold mb-2">FLDigi Practice</h4>
+          <div class="flip-card-back">
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-digital-tachograph text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">Digital Modes Net</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">FLDigi Practice</h4>
+              </div>
+            </div>
             <p class="text-sm">Join Paul, AE3U, on the W3BN repeater for text, images, and reports via FLDigi. All skill levels welcome!</p>
             <p class="text-xs text-muted mt-3">Next: <span class="next-mota"></span></p>
           </div>
         </div>
       </div>
 
-      <!-- Field Day -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front" >
             <i class="fas fa-campground text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">Field Day 2026</h3>
-            <p class="text-sm text-light mt-2">June 27–28</p>
+            <p class="text-sm text-text mt-2">June 27–28</p>
           </div>
-          <div class="flip-card-back >
-            <h4 class="font-bold text-gold mb-2">Planning in Progress</h4>
-            <p class="text-sm">Seeking indoor/outdoor venue with trees & generator access. Email <a href="mailto:rrcfieldcomms@outlook.com" class="text-gold-accent hover:underline">rrcfieldcomms@outlook.com</a> with ideas!</p>
+          <div class="flip-card-back">
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-campground text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">Field Day 2026</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">Planning in Progress</h4>
+              </div>
+            </div>
+            <p class="text-sm">Seeking indoor/outdoor venue with trees & generator access. Email <a href="mailto:rrcfieldcomms@outlook.com" class="text-gold hover:underline">rrcfieldcomms@outlook.com</a> with ideas!</p>
           </div>
         </div>
       </div>
 
-      <!-- Fox Hunt -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front ">
             <i class="fas fa-satellite-dish text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">Fox Hunt</h3>
-            <p class="text-sm text-light mt-2">Next: TBD</p>
+            <p class="text-sm text-text mt-2">Next: TBD</p>
           </div>
           <div class="flip-card-back">
-            <h4 class="font-bold text-gold mb-2">Hunt the Signal!</h4>
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-satellite-dish text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">Fox Hunt</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">Hunt the Signal!</h4>
+              </div>
+            </div>
             <p class="text-sm">Contact Dave, N3AMY, to schedule. 5W/3W club foxes + member micro-transmitters. Yagis, HT antennas, and fun!</p>
           </div>
         </div>
       </div>
 
-      <!-- General Meetings -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front ">
             <i class="fas fa-microphone-alt text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">General Meetings</h3>
-            <p class="text-sm text-light mt-2">1st Friday @ 7:30 PM</p>
+            <p class="text-sm text-text mt-2">1st Friday @ 7:30 PM</p>
           </div>
           <div class="flip-card-back ">
-            <h4 class="font-bold text-gold mb-2">Berks County AG Center</h4>
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-microphone-alt text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">General Meetings</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">Berks County AG Center</h4>
+              </div>
+            </div>
             <p class="text-sm">1238 County Welfare Rd, Leesport. Doors 7 PM. Raffle, presentation, open to all. No food, covered drinks OK.</p>
             <p class="text-xs text-muted mt-3">Next: <span class="next-general"></span></p>
           </div>
         </div>
       </div>
 
-      <!-- Hamfest -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front ">
             <i class="fas fa-store text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">Mini Hamfest</h3>
-            <p class="text-sm text-light mt-2">Aug 8 @ 7:30 PM</p>
+            <p class="text-sm text-text mt-2">Aug 8 @ 7:30 PM</p>
           </div>
           <div class="flip-card-back ">
-            <h4 class="font-bold text-gold mb-2">IBEW Local 743</h4>
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-store text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">Mini Hamfest</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">IBEW Local 743</h4>
+              </div>
+            </div>
             <p class="text-sm">20 Morgan Dr, Sinking Spring. Bring gear to sell (cash & carry). Setup 6:45 PM. 2025 full hamfest cancelled due to fire.</p>
           </div>
         </div>
       </div>
 
-      <!-- Meeting on the Air -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front ">
             <i class="fas fa-broadcast-tower text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">MOTA Net</h3>
-            <p class="text-sm text-light mt-2">Fridays @ 8:00 PM</p>
+            <p class="text-sm text-text mt-2">Fridays @ 8:00 PM</p>
           </div>
           <div class="flip-card-back ">
-            <h4 class="font-bold text-gold mb-2">146.91 MHz (131.8 PL)</h4>
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-broadcast-tower text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">MOTA Net</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">146.91 MHz (131.8 PL)</h4>
+              </div>
+            </div>
             <p class="text-sm">Newsline, info, roll call (13–56 check-ins). Since 1994. Chair: Craig, K3CRG.</p>
             <p class="text-xs text-muted mt-3">Next: <span class="next-mota"></span></p>
           </div>
         </div>
       </div>
 
-      <!-- Pagoda Award -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front ">
             <i class="fas fa-award text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">Pagoda Award</h3>
-            <p class="text-sm text-light mt-2">Work 10 RRC Members</p>
+            <p class="text-sm text-text mt-2">Work 10 RRC Members</p>
           </div>
           <div class="flip-card-back">
-            <h4 class="font-bold text-gold mb-2">Free Certificate</h4>
-            <p class="text-sm">Any band/mode. No QSLs. Endorsements at 15, 25+. Submit to <a href="mailto:rfengineer2@outlook.com" class="text-gold-accent hover:underline">rfengineer2@outlook.com</a>.</p>
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-award text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">Pagoda Award</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">Free Certificate</h4>
+              </div>
+            </div>
+            <p class="text-sm">Any band/mode. No QSLs. Endorsements at 15, 25+. Submit to <a href="mailto:rfengineer2@outlook.com" class="text-gold hover:underline">rfengineer2@outlook.com</a>.</p>
           </div>
         </div>
       </div>
 
-      <!-- POTA -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front ">
             <i class="fas fa-tree text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">POTA with RRC</h3>
-            <p class="text-sm text-light mt-2">Next: TBD (Aug)</p>
+            <p class="text-sm text-text mt-2">Next: TBD (Aug)</p>
           </div>
           <div class="flip-card-back ">
-            <h4 class="font-bold text-gold mb-2">Parks on the Air</h4>
-            <p class="text-sm">Group activations in Berks. Use club call, higher privileges. Email <a href="mailto:rrcfieldcomms@outlook.com" class="text-gold-accent hover:underline">rrcfieldcomms@outlook.com</a>.</p>
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-tree text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">POTA with RRC</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">Parks on the Air</h4>
+              </div>
+            </div>
+            <p class="text-sm">Group activations in Berks. Use club call, higher privileges. Email <a href="mailto:rrcfieldcomms@outlook.com" class="text-gold hover:underline">rrcfieldcomms@outlook.com</a>.</p>
           </div>
         </div>
       </div>
 
-      <!-- QCWA -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front ">
             <i class="fas fa-users text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">QCWA Chapter 31</h3>
-            <p class="text-sm text-light mt-2">Mondays @ 9:00 PM</p>
+            <p class="text-sm text-text mt-2">Mondays @ 9:00 PM</p>
           </div>
           <div class="flip-card-back">
-            <h4 class="font-bold text-gold mb-2">Quarter Century Club</h4>
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-users text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">QCWA Chapter 31</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">Quarter Century Club</h4>
+              </div>
+            </div>
             <p class="text-sm">President: Steve, K3ALV. All welcome on W3BN repeater. Monthly breakfasts (post-COVID).</p>
           </div>
         </div>
       </div>
 
-      <!-- Simplex Test -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <i class="fas fa-walkie-talkie text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">Simplex Test</h3>
-            <p class="text-sm text-light mt-2">Sat after General</p>
+            <p class="text-sm text-text mt-2">Sat after General</p>
           </div>
           <div class="flip-card-back ">
-            <h4 class="font-bold text-gold mb-2">146.55 MHz @ 1:00 PM</h4>
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-walkie-talkie text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">Simplex Test</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">146.55 MHz @ 1:00 PM</h4>
+              </div>
+            </div>
             <p class="text-sm">Test range. 15–25 check-ins. Chair: Mark, NT3V. Great for Pagoda Award contacts!</p>
             <p class="text-xs text-muted mt-3">Next: <span class="next-simplex"></span></p>
           </div>
         </div>
       </div>
 
-      <!-- VE Testing -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front ">
             <i class="fas fa-clipboard-check text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">VE Exam</h3>
-            <p class="text-sm text-light mt-2">Oct 3 @ 6:30 PM</p>
+            <p class="text-sm text-text mt-2">Oct 3 @ 6:30 PM</p>
           </div>
           <div class="flip-card-back ">
-            <h4 class="font-bold text-gold mb-2">Before General Meeting</h4>
-            <p class="text-sm">$15. Electronic + paper. FRN required. Register: <a href="https://ham.study/sessions/6893f3dfc2fadbb4d25fd648/1" target="_blank" class="text-gold-accent hover:underline">ham.study</a></p>
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-clipboard-check text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">VE Exam</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">Before General Meeting</h4>
+              </div>
+            </div>
+            <p class="text-sm">$15. Electronic + paper. FRN required. Register: <a href="https://ham.study/sessions/6893f3dfc2fadbb4d25fd648/1" target="_blank" class="text-gold hover:underline">ham.study</a></p>
           </div>
         </div>
       </div>
 
-      <!-- Winter Field Day -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front ">
             <i class="fas fa-snowflake text-5xl text-gold mb-4"></i>
             <h3 class="text-xl font-bold text-gold">Winter Field Day</h3>
-            <p class="text-sm text-light mt-2">Jan 24–25, 2026</p>
+            <p class="text-sm text-text mt-2">Jan 24–25, 2026</p>
           </div>
           <div class="flip-card-back ">
-            <h4 class="font-bold text-gold mb-2">24-Hour Operation</h4>
-            <p class="text-sm">Need 8–10 operators. Location TBD. Email <a href="mailto:rrcfieldcomms@outlook.com" class="text-gold-accent hover:underline">rrcfieldcomms@outlook.com</a> to join.</p>
+            <div class="flex items-start space-x-3 mb-3">
+              <i class="fas fa-snowflake text-2xl text-gold pt-1"></i>
+              <div>
+                <h3 class="text-xl font-bold text-gold">Winter Field Day</h3>
+                <h4 class="font-bold text-gold/80 mb-2 -mt-1 text-base">24-Hour Operation</h4>
+              </div>
+            </div>
+            <p class="text-sm">Need 8–10 operators. Location TBD. Email <a href="mailto:rrcfieldcomms@outlook.com" class="text-gold hover:underline">rrcfieldcomms@outlook.com</a> to join.</p>
           </div>
         </div>
       </div>
@@ -257,20 +310,17 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="mt-20 py-8 px-6 text-center text-muted text-sm border-t border-gray-800">
+  <footer class="mt-20 py-8 px-6 text-center text-muted text-sm border-t border-gold/40">
     <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
     <p class="mt-2">
-      <a href="https://arrl.org" target="_blank" class="text-gold-accent hover:underline">ARRL</a> • 
-      <a href="https://hamclubonline.com" target="_blank" class="text-gold-accent hover:underline">Member Login</a>
+      <a href="https://arrl.org" target="_blank" class="text-gold hover:underline">ARRL</a> • 
+      <a href="https://hamclubonline.com" target="_blank" class="text-gold hover:underline">Member Login</a>
     </p>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/auto-dates.js"></script>
   <script src="js/mobile-menu.js"></script>
 
-  <!-- 3D Flip Card CSS -->
   <style>
     .flip-card {
       perspective: 1000px;
@@ -287,6 +337,8 @@
     .flip-card:focus-within .flip-card-inner {
       transform: rotateY(180deg);
     }
+    
+    /* --- CSS FIX: Added all styling to both faces --- */
     .flip-card-front, .flip-card-back {
       position: absolute;
       width: 100%;
@@ -294,22 +346,49 @@
       backface-visibility: hidden;
       display: flex;
       flex-direction: column;
+      
+      /* Base styles for both cards */
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border-gold);
+      background-color: var(--card-bg);
+    }
+    
+    .flip-card-front {
+      /* Front-specific alignment */
       justify-content: center;
+      align-items: center;
+      text-align: center;
     }
+
     .flip-card-back {
+      /* Back-specific alignment */
       transform: rotateY(180deg);
+      justify-content: flex-start; /* Aligns content to top */
+      align-items: flex-start;
+      text-align: left;
     }
+    
     @media (max-width: 768px) {
+      .flip-card {
+        height: auto; /* Let card grow */
+      }
       .flip-card:hover .flip-card-inner,
       .flip-card:focus-within .flip-card-inner {
-        transform: none;
+        transform: none; /* Disable flip */
       }
-      .flip-card-front { display: none; }
+      .flip-card-inner {
+        position: relative; /* Not 3D */
+      }
+      .flip-card-front { 
+        display: none; /* This is the key: hide the front on mobile */
+      }
       .flip-card-back { 
+        /* Show the back as a normal, static card */
         position: relative; 
         transform: none; 
         height: auto;
-        min-height: 180px;
+        min-height: 220px; /* Match desktop height */
       }
     }
   </style>
