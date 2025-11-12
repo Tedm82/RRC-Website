@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Store | Reading Radio Club | W3BN</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <nav class="fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold orbitron text-gold">W3BN</a>
+      
+      <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="index.html" class="hover:text-gold">Home</a></li>
+
+        <li class="relative group">
+          <a href="#" class="hover:text-gold">
+            About Us <i class="fas fa-chevron-down text-xs opacity-70"></i>
+          </a>
+          <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
+            <li><a href="history.html" class="block px-4 py-2 hover:bg-slate-800">History</a></li>
+            <li><a href="board.html" class="block px-4 py-2 hover:bg-slate-800">Leadership</a></li>
+            <li><a href="minutes.html" class="block px-4 py-2 hover:bg-slate-800">Minutes & Bulletins</a></li>
+          </ul>
+        </li>
+
+        <li class="relative group">
+          <a href="#" class="hover:text-gold">
+            Activities <i class="fas fa-chevron-down text-xs opacity-70"></i>
+          </a>
+          <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
+            <li><a href="activities.html" class="block px-4 py-2 hover:bg-slate-800">All Activities</a></li>
+            <li><a href="nets.html" class="block px-4 py-2 hover:bg-slate-800">Nets & Meetings</a></li>
+          </ul>
+        </li>
+
+        <li><a href="propagation.html" class="hover:text-gold">Propagation</a></li>
+        <li><a href="membership.html" class="hover:text-gold">Membership</a></li>
+        
+        <li><a href="store.html" class="text-gold font-bold">Store</a></li>
+        
+        <li><a href="uploads.html" class="hover:text-gold">Uploads</a></li>
+        <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+      </ul>
+
+      <button id="menu-btn" class="md:hidden text-gold">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden">
+      <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
+        <li><a href="index.html" class="block py-2 hover:text-gold">Home</a></li>
+        
+        <li class="pt-2">
+          <span class="block py-2 text-gold font-bold orbitron text-xs">ABOUT US</span>
+          <ul class="pl-4">
+            <li><a href="history.html" class="block py-2 hover:text-gold">History</a></li>
+            <li><a href="board.html" class="block py-2 hover:text-gold">Leadership</a></li>
+            <li><a href="minutes.html" class="block py-2 hover:text-gold">Minutes & Bulletins</a></li>
+          </ul>
+        </li>
+
+        <li class="pt-2">
+          <span class="block py-2 text-gold font-bold orbitron text-xs">ACTIVITIES</span>
+          <ul class="pl-4">
+            <li><a href="activities.html" class="block py-2 hover:text-gold">All Activities</a></li>
+            <li><a href="nets.html" class="block py-2 hover:text-gold">Nets & Meetings</a></li>
+          </ul>
+        </li>
+
+        <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
+
+        <li class="pt-2 border-t border-gold/40">
+          <a href="membership.html" class="block py-2 hover:text-gold">Membership</a>
+        </li>
+        
+        <li><a href="store.html" class="block py-2 text-gold font-bold">Store</a></li>
+        
+        <li><a href="uploads.html" class="block py-2 hover:text-gold">Uploads</a></li>
+        <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero pt-24 pb-0 px-2 text-center">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="font-black orbitron mb-4 text-gold">Club Store</h1>
+      <p class="text-xl text-text mb-8 max-w-3xl mx-auto">
+        Get your W3BN swag soon!
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 px-6 max-w-4xl mx-auto flex-grow w-full">
+    <div class="bg-navy-card p-8 md:p-12 text-center">
+      
+      <i class="fas fa-store text-7xl text-gold mb-6"></i>
+      
+      <h2 class="text-3xl font-bold orbitron text-gold mb-4">Coming Soon!</h2>
+      
+      <p class="text-text text-lg mb-4">
+        We are working hard to set up an online store where you can purchase high-quality club-branded merchandise like t-shirts, hats, and mugs.
+      </p>
+      
+      <p class="text-muted text-lg">
+        All profits will go directly to supporting the W3BN repeater fund. Please check back soon!
+      </p>
+
+    </div>
+  </section>
+
+  <footer class="mt-20 py-8 px-6 text-center text-muted text-sm border-t border-gold/40">
+    <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
+    <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-gold hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-gold hover:underline">Member Login</a></p>
+  </footer>
+
+  <script src="js/auto-dates.js"></script>
+  <script src="js/mobile-menu.js"></script>
+</body>
+</html>
