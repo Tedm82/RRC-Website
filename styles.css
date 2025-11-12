@@ -128,3 +128,112 @@ nav a:hover, nav a.text-gold {
   background-color: rgba(0, 31, 63, 0.97);
   border-top: 1px solid var(--border-gold);
 }
+
+/* === 3D FLIP CARDS — FIXED & MATCHED === */
+.flip-card {
+  perspective: 1000px;
+  height: 240px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* FRONT & BACK — Solid, No Bleed */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-gold);
+}
+
+/* FRONT — Clean Navy Slate */
+.flip-card-front {
+  background-color: var(--card-bg);
+  color: var(--white);
+}
+
+/* BACK — Darker Slate, No Transparency */
+.flip-card-back {
+  background-color: #152238; /* Darker than front */
+  color: var(--light);
+  transform: rotateY(180deg);
+}
+
+/* Icons */
+.flip-card-front i {
+  color: var(--gold);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Text */
+.flip-card-front h3 {
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.flip-card-front p {
+  font-size: 0.875rem;
+  color: var(--light);
+}
+
+/* Back Text */
+.flip-card-back h4 {
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+.flip-card-back p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.flip-card-back a {
+  color: var(--gold-accent);
+  text-decoration: underline;
+}
+.flip-card-back a:hover {
+  color: var(--gold);
+}
+
+/* Mobile: No Flip, Show Back */
+@media (max-width: 768px) {
+  .flip-card {
+    height: auto;
+    min-height: 200px;
+  }
+  .flip-card-inner {
+    transform: none !important;
+  }
+  .flip-card-front {
+    display: none;
+  }
+  .flip-card-back {
+    position: relative;
+    transform: none !important;
+    height: auto;
+    text-align: left;
+    align-items: flex-start;
+  }
+}
