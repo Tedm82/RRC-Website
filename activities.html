@@ -338,7 +338,7 @@
       transform: rotateY(180deg);
     }
     
-    /* --- CSS FIX: Added all styling to both faces --- */
+    /* Base styles for both faces */
     .flip-card-front, .flip-card-back {
       position: absolute;
       width: 100%;
@@ -347,11 +347,10 @@
       display: flex;
       flex-direction: column;
       
-      /* Base styles for both cards */
+      /* Base styles */
       border-radius: 1rem;
       padding: 1.5rem;
       border: 1px solid var(--border-gold);
-      background-color: var(--card-bg);
     }
     
     .flip-card-front {
@@ -359,14 +358,19 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      /* Use the TRANSPARENT background */
+      background-color: var(--card-bg); 
     }
 
     .flip-card-back {
       /* Back-specific alignment */
       transform: rotateY(180deg);
-      justify-content: flex-start; /* Aligns content to top */
+      justify-content: flex-start; 
       align-items: flex-start;
       text-align: left;
+      /* --- THE FIX --- */
+      /* Use a SOLID background on desktop to hide the front */
+      background-color: var(--navy); 
     }
     
     @media (max-width: 768px) {
@@ -381,14 +385,17 @@
         position: relative; /* Not 3D */
       }
       .flip-card-front { 
-        display: none; /* This is the key: hide the front on mobile */
+        display: none; /* Hide the front */
       }
       .flip-card-back { 
         /* Show the back as a normal, static card */
         position: relative; 
         transform: none; 
         height: auto;
-        min-height: 220px; /* Match desktop height */
+        min-height: 220px; 
+        
+        /* On mobile, use the TRANSPARENT background again */
+        background-color: var(--card-bg);
       }
     }
   </style>
