@@ -4,17 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Reading Radio Club | W3BN</title>
-    <!-- Fonts -->
+  <meta name="description" content="Field Day, Fox Hunts, POTA, VE Testing, Digital Nets — W3BN does it all." />
+  
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css">
-  
-  <!-- Icons -->
+
+  <!-- Tailwind Config: Your Colors + Orbitron -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { orbitron: ['Orbitron', 'monospace'] },
+          colors: {
+            navy: '#001F3F',
+            'navy-dark': '#0a1420',
+            gold: '#FFD700',
+            'gold-soft': '#f9c400',
+            'border-gold': 'rgba(255, 215, 0, 0.4)',
+            'gold-accent': '#FFD700'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- YOUR CUSTOM STYLES – AFTER TAILWIND -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-950 text-white min-h-screen">
 
