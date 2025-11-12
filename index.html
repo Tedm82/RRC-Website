@@ -2,81 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale-1.0">
   <title>Reading Radio Club | W3BN-W3CCH Repeater</title>
   <meta name="description" content="Reading Radio Club – W3BN VHF/UHF repeater serving Reading, PA. Join 93 members for nets, events, and amateur radio fun." />
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
   
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="bg-gray-950 text-white min-h-screen">
+<body class="min-h-screen flex flex-col">
 
-  <!-- Navbar -->
-  <nav class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-cyan-900/50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold orbitron text-cyan-400 hover:glow transition">W3BN-W3CCH</a>
-      <ul class="flex space-x-6 text-sm flex-wrap justify-center">
-        <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
-        <li><a href="history.html" class="hover:text-cyan-400 transition">History</a></li>
-        <li><a href="membership.html" class="hover:text-cyan-400 transition">Membership</a></li>
-        <li><a href="activities.html" class="hover:text-cyan-400 transition">Activities</a></li>
-        <li><a href="nets.html" class="hover:text-cyan-400 transition">Nets</a></li>
-        <li><a href="propagation.html" class="hover:text-cyan-400 transition">Propagation</a></li>
-        <li><a href="social.html" class="hover:text-cyan-400 transition">Social</a></li>
-        <li><a href="contact.html" class="hover:text-cyan-400 transition">Contact</a></li>
+  <nav class="fixed w-full z-50"> <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold orbitron text-gold">W3BN</a> <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="index.html" class="text-gold font-bold">Home</a></li> <li><a href="history.html" class="hover:text-gold">History</a></li>
+        <li><a href="membership.html" class="hover:text-gold">Membership</a></li>
+        <li><a href="activities.html" class="hover:text-gold">Activities</a></li>
+        <li><a href="nets.html" class="hover:text-gold">Nets</a></li>
+        <li><a href="propagation.html" class="hover:text-gold">Propagation</a></li>
+        <li><a href="social.html" class="hover:text-gold">Social</a></li>
+        <li><a href="uploads.html" class="hover:text-gold">Uploads</a></li> <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden text-gold">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden">
+      <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
+        <li><a href="index.html" class="block py-2 text-gold font-bold">Home</a></li> <li><a href="history.html" class="block py-2 hover:text-gold">History</a></li>
+        <li><a href="membership.html" class="block py-2 hover:text-gold">Membership</a></li>
+        <li><a href="activities.html" class="block py-2 hover:text-gold">Activities</a></li>
+        <li><a href="nets.html" class="block py-2 hover:text-gold">Nets</a></li>
+        <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
+        <li><a href="social.html" class="block py-2 hover:text-gold">Social</a></li>
+        <li><a href="uploads.html" class="block py-2 hover:text-gold">Uploads</a></li> <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="pt-24 pb-12 px-6 text-center bg-gradient-to-b from-gray-900 to-gray-950">
+  <section class="hero pt-24 pb-12 px-6 text-center">
     <div class="max-w-5xl mx-auto">
-      <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-cyan-400 glow">Reading Radio Club</h1>
-      <p class="text-xl text-gray-300 mb-8">W3BN Repeater – Serving Reading, PA with over 90 active hams. Emergency comms, public service, and ragchewing since 1922.</p>
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="membership.html" class="px-8 py-4 bg-cyan-600 hover:bg-cyan-500 rounded-lg font-semibold transition">Join Us</a>
-        <a href="propagation.html" class="px-8 py-4 border-2 border-cyan-600 hover:bg-cyan-600/20 rounded-lg font-semibold transition">Check Propagation</a>
+      <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-gold">Reading Radio Club</h1> <p class="text-xl text-text mb-8">W3BN Repeater – Serving Reading, PA with over 90 active hams. Emergency comms, public service, and ragchewing since 1922.</p> <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="membership.html" class="btn-gold">Join Us</a>
+        <a href="propagation.html" class="btn-outline-gold">Check Propagation</a>
       </div>
     </div>
   </section>
 
-  <!-- Quick Links -->
-  <section class="py-12 px-6 max-w-7xl mx-auto">
-    <h2 class="text-3xl font-bold orbitron text-center mb-8 glow text-cyan-400">Quick Links</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50">
-        <h3 class="text-xl font-semibold mb-2">Next Nets</h3>
-        <p>General: <span class="next-general"></span></p>
-        <p>Board: <span class="next-board"></span></p>
-        <p>MOTA: <span class="next-mota"></span></p>
+  <section class="py-12 px-6 max-w-7xl mx-auto flex-grow">
+    <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Quick Links</h2> <div class="grid md:grid-cols-3 gap-6">
+      
+      <div class="bg-navy-card">
+        <h3 class="text-xl font-semibold mb-2 text-gold">Next Nets</h3> <p class="text-sm">General: <span class="next-general"></span></p>
+        <p class="text-sm">Board: <span class="next-board"></span></p>
+        <p class="text-sm">MOTA: <span class="next-mota"></span></p>
       </div>
-      <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50">
-        <h3 class="text-xl font-semibold mb-2">W3BN Repeater</h3>
-        <p>146.910 MHz (-) | -600kHz | 131.8Hz PL </p>
-        <a href="contact.html" class="text-cyan-400 hover:underline">Status →</a>
-      </div>
-      <div class="bg-gray-900/50 rounded-xl p-6 border border-cyan-800/50">
-        <h3 class="text-xl font-semibold mb-2">Events</h3>
-        <p>Field Day June 2026 | Club Picnic July</p>
-        <a href="activities.html" class="text-cyan-400 hover:underline">Calendar →</a>
-      </div>
+      
+      <div class="bg-navy-card">
+        <h3 class="text-xl font-semibold mb-2 text-gold">W3BN Repeater</h3> <p class="text-sm">146.910 MHz (-) | -600kHz | 131.8Hz PL </p>
+        <a href="contact.html" class="text-gold hover:underline">Status →</a> </div>
+      
+      <div class="bg-navy-card">
+        <h3 class="text-xl font-semibold mb-2 text-gold">Events</h3> <p class="text-sm">Field Day June 2026 | Club Picnic July</p>
+        <a href="activities.html" class="text-gold hover:underline">Calendar →</a> </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="mt-20 py-8 px-6 text-center text-gray-500 text-sm border-t border-gray-800">
+  <footer class="mt-20 py-8 px-6 text-center text-muted text-sm border-t border-gold/40">
     <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
-    <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-cyan-400 hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-cyan-400 hover:underline">Member Login</a></p>
+    <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-gold hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-gold hover:underline">Member Login</a></p>
   </footer>
 
   <script src="js/auto-dates.js"></script>
-</body>
+  <script src="js/mobile-menu.js"></script> </body>
 </html>
