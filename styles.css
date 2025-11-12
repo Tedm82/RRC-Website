@@ -106,10 +106,6 @@ nav a:hover, nav a.text-gold {
 .hero {
   background: linear-gradient(rgba(0, 31, 63, 0.75), rgba(10, 20, 32, 0.9)), 
               url('../assets/hero-bg.jpg') center/cover no-repeat;
-  min-height: 65vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   padding: 2rem 1rem;
 }
