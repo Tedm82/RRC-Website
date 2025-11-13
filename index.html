@@ -12,6 +12,21 @@
   <link rel="stylesheet" href="styles.css">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    .spinner {
+      border: 4px solid var(--border-gold);
+      border-top: 4px solid var(--gold);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
@@ -27,7 +42,6 @@
       
       <ul class="hidden md:flex space-x-6 text-sm">
         <li><a href="index.html" class="text-gold font-bold">Home</a></li>
-
         <li class="relative group">
           <a href="#" class="hover:text-gold">
             About Us <i class="fas fa-chevron-down text-xs opacity-70"></i>
@@ -38,7 +52,6 @@
             <li><a href="minutes.html" class="block px-4 py-2 hover:bg-slate-800">Minutes & Bulletins</a></li>
           </ul>
         </li>
-
         <li class="relative group">
           <a href="#" class="hover:text-gold">
             Activities <i class="fas fa-chevron-down text-xs opacity-70"></i>
@@ -48,25 +61,19 @@
             <li><a href="nets.html" class="block px-4 py-2 hover:bg-slate-800">Nets & Meetings</a></li>
           </ul>
         </li>
-
         <li><a href="propagation.html" class="hover:text-gold">Propagation</a></li>
         <li><a href="membership.html" class="hover:text-gold">Membership</a></li>
         <li><a href="store.html" class="hover:text-gold">Store</a></li>
         <li><a href="uploads.html" class="hover:text-gold">Uploads</a></li>
         <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
       </ul>
-
       <button id="menu-btn" class="md:hidden text-gold">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
-
     <div id="mobile-menu" class="hidden md:hidden">
       <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
         <li><a href="index.html" class="block py-2 text-gold font-bold">Home</a></li>
-        
         <li class="pt-2">
           <span class="block py-2 text-gold font-bold orbitron text-xs">ABOUT US</span>
           <ul class="pl-4">
@@ -75,7 +82,6 @@
             <li><a href="minutes.html" class="block py-2 hover:text-gold">Minutes & Bulletins</a></li>
           </ul>
         </li>
-
         <li class="pt-2">
           <span class="block py-2 text-gold font-bold orbitron text-xs">ACTIVITIES</span>
           <ul class="pl-4">
@@ -83,12 +89,8 @@
             <li><a href="nets.html" class="block py-2 hover:text-gold">Nets & Meetings</a></li>
           </ul>
         </li>
-
         <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
-
-        <li classs="pt-2 border-t border-gold/40">
-          <a href="membership.html" class="block py-2 hover:text-gold">Membership</a>
-        </li>
+        <li class="pt-2 border-t border-gold/40"><a href="membership.html" class="block py-2 hover:text-gold">Membership</a></li>
         <li><a href="store.html" class="block py-2 hover:text-gold">Store</a></li>
         <li><a href="uploads.html" class="block py-2 hover:text-gold">Uploads</a></li>
         <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
@@ -107,8 +109,8 @@
     </div>
   </section>
 
-  <section class="py-12 px-6 max-w-7xl mx-auto flex-grow">
-    <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Quick Links</h2>
+  <section class="py-12 px-6 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Club Dashboard</h2>
     <div class="grid md:grid-cols-3 gap-6">
       
       <div class="bg-navy-card">
@@ -127,16 +129,46 @@
         <p class="text-sm"><strong>BRAIN Net:</strong> <span class="next-brain"></span></p>
         <p class="text-sm text-muted mt-2">
           Repeater: 147.180 MHz (+, 110.9 PL)
-        </smp>
+        </p>
       </div>
       
       <div class="bg-navy-card">
-        <h3 class="text-xl font-semibold mb-2 text-gold">Get Involved</h3>
-        <p class="text-sm text-text mb-4">New to the club or looking to get active? Start here.</p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="membership.html" class="btn-outline-gold text-center">Join Us</a>
-          <a href="activities.html" class="btn-outline-gold text-center">See Activities</a>
+        <h3 class="text-xl font-semibold mb-2 text-gold">Upcoming Event</h3>
+        <div id="next-event-loader" class="flex justify-center items-center py-4">
+          <div class="spinner"></div>
         </div>
+        <div id="next-event-content" class="hidden">
+          <p class="text-sm text-gold font-bold text-lg" id="next-event-name"></p>
+          <p class="text-sm text-text" id="next-event-date"></p>
+          <a href="activities.html" class="btn-outline-gold text-center mt-4 block">
+            See All Activities
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section class="pb-12 px-6 max-w-7xl mx-auto flex-grow w-full">
+    <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Ham Radio News</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <div class="bg-navy-card p-6 md:p-8">
+        <h3 class="text-2xl font-semibold text-gold mb-6">ARRL News</h3>
+        <ul id="arrl-feed-list" class="space-y-5">
+          <li id="arrl-loader" class="flex justify-center items-center py-10">
+            <div class="spinner"></div>
+          </li>
+          </ul>
+      </div>
+
+      <div class="bg-navy-card p-6 md:p-8">
+        <h3 class="text-2xl font-semibold text-gold mb-6">QRZ.com News</h3>
+        <ul id="qrz-feed-list" class="space-y-5">
+          <li id="qrz-loader" class="flex justify-center items-center py-10">
+            <div class="spinner"></div>
+          </li>
+          </ul>
       </div>
 
     </div>
@@ -148,5 +180,75 @@
 
   <script src="js/auto-dates.js"></script>
   <script src="js/mobile-menu.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Define RSS Feeds
+      const feeds = [
+        {
+          url: 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.arrl.org%2Farrl.rss',
+          listId: 'arrl-feed-list',
+          loaderId: 'arrl-loader',
+          count: 3 // Show 3 articles
+        },
+        {
+          url: 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.qrz.com%2Frss.xml',
+          listId: 'qrz-feed-list',
+          loaderId: 'qrz-loader',
+          count: 3 // Show 3 articles
+        }
+      ];
+
+      /**
+       * Reusable function to fetch, parse, and display any RSS feed
+       */
+      async function loadNewsFeed(feedUrl, listId, loaderId, articleCount) {
+        const listElement = document.getElementById(listId);
+        const loaderElement = document.getElementById(loaderId);
+
+        try {
+          const response = await fetch(feedUrl);
+          if (!response.ok) throw new Error('Network response was not ok');
+          const data = await response.json();
+
+          if (data.status === 'ok' && data.items) {
+            const articles = data.items.slice(0, articleCount);
+            
+            listElement.innerHTML = ''; // Clear loader
+
+            articles.forEach(article => {
+              const li = document.createElement('li');
+              li.className = 'border-b border-gold/40 pb-5 last:pb-0 last:border-b-0'; 
+              
+              const pubDate = new Date(article.pubDate).toLocaleDateString('en-US', {
+                month: 'long', day: 'numeric', year: 'numeric'
+              });
+
+              li.innerHTML = `
+                <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="text-lg text-gold hover:underline font-semibold">
+                  ${article.title}
+                </a>
+                <p class="text-muted text-sm mt-1">Published: ${pubDate}</p>
+              `;
+              listElement.appendChild(li);
+            });
+
+          } else {
+            throw new Error('Failed to load RSS feed items.');
+          }
+        } catch (error) {
+          console.error(`Failed to load news feed for ${listId}:`, error);
+          if (loaderElement) {
+            loaderElement.parentElement.innerHTML = '<li class="text-red-400">Error: Could not load live news feed.</li>';
+          }
+        }
+      }
+
+      // Load all defined feeds
+      feeds.forEach(feed => {
+        loadNewsFeed(feed.url, feed.listId, feed.loaderId, feed.count);
+      });
+    });
+  </script>
 </body>
 </html>
