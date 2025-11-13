@@ -163,9 +163,9 @@
       </div>
 
       <div class="bg-navy-card p-6 md:p-8">
-        <h3 class="text-2xl font-semibold text-gold mb-6">Southgate ARC News</h3>
-        <ul id="southgate-feed-list" class="space-y-5">
-          <li id="southgate-loader" class="flex justify-center items-center py-10">
+        <h3 class="text-2xl font-semibold text-gold mb-6">Amateur Radio Newsline</h3>
+        <ul id="newsline-feed-list" class="space-y-5">
+          <li id="newsline-loader" class="flex justify-center items-center py-10">
             <div class="spinner"></div>
           </li>
         </ul>
@@ -183,18 +183,20 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Define RSS Feeds
+      // Define RSS Feeds using the new service
       const feeds = [
         {
-          url: 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.arrl.org%2Farrl.rss',
+          url: 'https://feed2json.org/convert?url=http%3A%2F%2Fwww.arrl.org%2Farrl.rss',
           listId: 'arrl-feed-list',
           loaderId: 'arrl-loader',
           count: 3 // Show 3 articles
         },
         {
-          url: 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.southgatearc.org%2Fnews%2Findex.rss',
-          listId: 'southgate-feed-list', 
-          loaderId: 'southgate-loader', 
+          // --- THIS IS THE FIX ---
+          // Replaced Southgate with Amateur Radio Newsline
+          url: 'https://feed2json.org/convert?url=http%3A%2F%2Fwww.arnewsline.org%2Ffeed%2F',
+          listId: 'newsline-feed-list', // Matched to new HTML
+          loaderId: 'newsline-loader', // Matched to new HTML
           count: 3 
         }
       ];
@@ -207,11 +209,12 @@
         const loaderElement = document.getElementById(loaderId);
 
         try {
-          const response = await fetch(feedUrl);
+          // Added a cache-buster query
+          const response = await fetch(feedUrl + `&_=${new Date().getTime()}`);
           if (!response.ok) throw new Error('Network response was not ok');
           const data = await response.json();
 
-          if (data.status === 'ok' && data.items) {
+          if (data.items && data.items.length > 0) {
             const articles = data.items.slice(0, articleCount);
             
             listElement.innerHTML = ''; // Clear loader
@@ -220,12 +223,12 @@
               const li = document.createElement('li');
               li.className = 'border-b border-gold/40 pb-5 last:pb-0 last:border-b-0'; 
               
-              const pubDate = new Date(article.pubDate).toLocaleDateString('en-US', {
+              const pubDate = new Date(article.date_published).toLocaleDateString('EN-us', {
                 month: 'long', day: 'numeric', year: 'numeric'
               });
 
               li.innerHTML = `
-                <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="text-lg text-gold hover:underline font-semibold">
+                <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="text-lg text-gold hover:underline font-semibold">
                   ${article.title}
                 </a>
                 <p class="text-muted text-sm mt-1">Published: ${pubDate}</p>
@@ -239,7 +242,7 @@
         } catch (error) {
           console.error(`Failed to load news feed for ${listId}:`, error);
           if (loaderElement) {
-            loaderElement.parentElement.innerHTML = '<li class="text-red-400">Error: Could not load live news feed.</li>';
+            loaderElement.parentElement.innerHTML = `<li class="text-red-400">Error: Could not load live news feed. Please try refreshing.</li>`;
           }
         }
       }
@@ -250,5 +253,7 @@
       });
     });
   </script>
+</body>
+</html>
 </body>
 </html>
