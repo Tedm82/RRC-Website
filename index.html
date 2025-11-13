@@ -182,76 +182,63 @@
   <script src="js/mobile-menu.js"></script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Define RSS Feeds using the new service
-      const feeds = [
-        {
-          url: 'https://feed2json.org/convert?url=http%3A%2F%2Fwww.arrl.org%2Farrl.rss',
-          listId: 'arrl-feed-list',
-          loaderId: 'arrl-loader',
-          count: 3 // Show 3 articles
-        },
-        {
-          // --- THIS IS THE FIX ---
-          // Replaced Southgate with Amateur Radio Newsline
-          url: 'https://feed2json.org/convert?url=http%3A%2F%2Fwww.arnewsline.org%2Ffeed%2F',
-          listId: 'newsline-feed-list', // Matched to new HTML
-          loaderId: 'newsline-loader', // Matched to new HTML
-          count: 3 
-        }
-      ];
+  document.addEventListener('DOMContentLoaded', () => {
+    // === UPDATED FEEDS USING rss2json.com ===
+    const feeds = [
+      {
+        url: 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.arrl.org%2Farrl.rss',
+        listId: 'arrl-feed-list',
+        loaderId: 'arrl-loader',
+        count: 3
+      },
+      {
+        url: 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.arnewsline.org%2Ffeed%2F',
+        listId: 'newsline-feed-list',
+        loaderId: 'newsline-loader',
+        count: 3
+      }
+    ];
 
-      /**
-       * Reusable function to fetch, parse, and display any RSS feed
-       */
-      async function loadNewsFeed(feedUrl, listId, loaderId, articleCount) {
-        const listElement = document.getElementById(listId);
-        const loaderElement = document.getElementById(loaderId);
+    async function loadNewsFeed(feedUrl, listId, loaderId, articleCount) {
+      const listElement = document.getElementById(listId);
+      const loaderElement = document.getElementById(loaderId);
+      try {
+        const response = await fetch(feedUrl + `&_=${new Date().getTime()}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
 
-        try {
-          // Added a cache-buster query
-          const response = await fetch(feedUrl + `&_=${new Date().getTime()}`);
-          if (!response.ok) throw new Error('Network response was not ok');
-          const data = await response.json();
+        if (data.items && data.items.length > 0) {
+          const articles = data.items.slice(0, articleCount);
+          listElement.innerHTML = '';
+          articles.forEach(article => {
+            const li = document.createElement('li');
+            li.className = 'border-b border-gold/40 pb-5 last:pb-0 last:border-b-0';
 
-          if (data.items && data.items.length > 0) {
-            const articles = data.items.slice(0, articleCount);
-            
-            listElement.innerHTML = ''; // Clear loader
-
-            articles.forEach(article => {
-              const li = document.createElement('li');
-              li.className = 'border-b border-gold/40 pb-5 last:pb-0 last:border-b-0'; 
-              
-              const pubDate = new Date(article.date_published).toLocaleDateString('EN-us', {
-                month: 'long', day: 'numeric', year: 'numeric'
-              });
-
-              li.innerHTML = `
-                <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="text-lg text-gold hover:underline font-semibold">
-                  ${article.title}
-                </a>
-                <p class="text-muted text-sm mt-1">Published: ${pubDate}</p>
-              `;
-              listElement.appendChild(li);
+            const pubDate = new Date(article.pubDate || article.date_published).toLocaleDateString('en-US', {
+              month: 'long', day: 'numeric', year: 'numeric'
             });
 
-          } else {
-            throw new Error('Failed to load RSS feed items.');
-          }
-        } catch (error) {
-          console.error(`Failed to load news feed for ${listId}:`, error);
-          if (loaderElement) {
-            loaderElement.parentElement.innerHTML = `<li class="text-red-400">Error: Could not load live news feed. Please try refreshing.</li>`;
-          }
+            li.innerHTML = `
+              <a href="${article.link || article.url}" target="_blank" rel="noopener noreferrer" class="text-lg text-gold hover:underline font-semibold">
+                ${article.title}
+              </a>
+              <p class="text-muted text-sm mt-1">Published: ${pubDate}</p>
+            `;
+            listElement.appendChild(li);
+          });
+        } else {
+          throw new Error('No items in feed');
         }
+      } catch (error) {
+        console.error(`Failed to load ${listId}:`, error);
+        listElement.innerHTML = `<li class="text-red-400">Error: Could not load news feed. Please try again later.</li>`;
+      } finally {
+        if (loaderElement) loaderElement.remove();
       }
+    }
 
-      // Load all defined feeds
-      feeds.forEach(feed => {
-        loadNewsFeed(feed.url, feed.listId, feed.loaderId, feed.count);
-      });
-    });
-  </script>
+    feeds.forEach(feed => loadNewsFeed(feed.url, feed.listId, feed.loaderId, feed.count));
+  });
+</script>
 </body>
 </html>
