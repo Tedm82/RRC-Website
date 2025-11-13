@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale-1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reading Radio Club | W3BN-W3CCH Repeater</title>
   <meta name="description" content="Reading Radio Club – W3BN VHF/UHF repeater serving Reading, PA. Join 93 members for nets, events, and amateur radio fun." />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,90 +15,92 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
- <nav class="fixed w-full z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="index.html" class="flex items-center space-x-3">
-      <img src="assets/logo.jpg" alt="Reading Radio Club Logo" class="h-12 w-auto">
-      <div class="flex flex-col text-2xl font-bold orbitron text-gold leading-tight">
-        <span>The Reading Radio Club</span>
-        <span class="text-xl">W3BN | W3CCH</span>
-      </div>
-    </a>
-    
-    <ul class="hidden md:flex space-x-6 text-sm">
-      <li><a href="index.html" class="hover:text-gold">Home</a></li>
-
-      <li class="relative group">
-        <a href="#" class="hover:text-gold">
-          About Us <i class="fas fa-chevron-down text-xs opacity-70"></i>
-        </a>
-        <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
-          <li><a href="history.html" class="block px-4 py-2 hover:bg-slate-800">History</a></li>
-          <li><a href="board.html" class="block px-4 py-2 hover:bg-slate-800">Leadership</a></li>
-          <li><a href="minutes.html" class="block px-4 py-2 hover:bg-slate-800">Minutes & Bulletins</a></li>
-        </ul>
-      </li>
-
-      <li class="relative group">
-        <a href="#" class="hover:text-gold">
-          Activities <i class="fas fa-chevron-down text-xs opacity-70"></i>
-        </a>
-        <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
-          <li><a href="activities.html" class="block px-4 py-2 hover:bg-slate-800">All Activities</a></li>
-          <li><a href="nets.html" class="block px-4 py-2 hover:bg-slate-800">Nets & Meetings</a></li>
-          </ul>
-      </li>
-
-      <li><a href="propagation.html" class="hover:text-gold">Propagation</a></li>
-
-      <li><a href="membership.html" class="hover:text-gold">Membership</a></li>
-      <li><a href="store.html" class="hover:text-gold">Store</a></li>
-      <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
-    </ul>
-
-    <button id="menu-btn" class="md:hidden text-gold">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
-
-  <div id="mobile-menu" class="hidden md:hidden">
-    <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
-      <li><a href="index.html" class="block py-2 hover:text-gold">Home</a></li>
+  <nav class="fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="assets/logo.jpg" alt="Reading Radio Club Logo" class="h-12 w-auto">
+        <div class="flex flex-col text-2xl font-bold orbitron text-gold leading-tight">
+          <span>The Reading Radio Club</span>
+          <span class="text-xl">W3BN | W3CCH</span>
+        </div>
+      </a>
       
-      <li class="pt-2">
-        <span class="block py-2 text-gold font-bold orbitron text-xs">ABOUT US</span>
-        <ul class="pl-4">
-          <li><a href="history.html" class="block py-2 hover:text-gold">History</a></li>
-          <li><a href="board.html" class="block py-2 hover:text-gold">Leadership</a></li>
-          <li><a href="minutes.html" class="block py-2 hover:text-gold">Minutes & Bulletins</a></li>
-        </ul>
-      </li>
+      <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="index.html" class="text-gold font-bold">Home</a></li>
 
-      <li class="pt-2">
-        <span class="block py-2 text-gold font-bold orbitron text-xs">ACTIVITIES</span>
-        <ul class="pl-4">
-          <li><a href="activities.html" class="block py-2 hover:text-gold">All Activities</a></li>
-          <li><a href="nets.html" class="block py-2 hover:text-gold">Nets & Meetings</a></li>
+        <li class="relative group">
+          <a href="#" class="hover:text-gold">
+            About Us <i class="fas fa-chevron-down text-xs opacity-70"></i>
+          </a>
+          <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
+            <li><a href="history.html" class="block px-4 py-2 hover:bg-slate-800">History</a></li>
+            <li><a href="board.html" class="block px-4 py-2 hover:bg-slate-800">Leadership</a></li>
+            <li><a href="minutes.html" class="block px-4 py-2 hover:bg-slate-800">Minutes & Bulletins</a></li>
           </ul>
-      </li>
+        </li>
 
-      <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
+        <li class="relative group">
+          <a href="#" class="hover:text-gold">
+            Activities <i class="fas fa-chevron-down text-xs opacity-70"></i>
+          </a>
+          <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
+            <li><a href="activities.html" class="block px-4 py-2 hover:bg-slate-800">All Activities</a></li>
+            <li><a href="nets.html" class="block px-4 py-2 hover:bg-slate-800">Nets & Meetings</a></li>
+          </ul>
+        </li>
 
-      <li class="pt-2 border-t border-gold/40">
-        <a href="membership.html" class="block py-2 hover:text-gold">Membership</a>
-      </li>
-      <li><a href="store.html" class="block py-2 hover:text-gold">Store</a></li>
-      <li><a href="uploads.html" class="block py-2 hover:text-gold">Uploads</a></li>
-      <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+        <li><a href="propagation.html" class="hover:text-gold">Propagation</a></li>
+        <li><a href="membership.html" class="hover:text-gold">Membership</a></li>
+        <li><a href="store.html" class="hover:text-gold">Store</a></li>
+        <li><a href="uploads.html" class="hover:text-gold">Uploads</a></li>
+        <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+      </ul>
 
-  <section class="hero pt-24 pb-12 px-6 text-center">
+      <button id="menu-btn" class="md:hidden text-gold">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden">
+      <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
+        <li><a href="index.html" class="block py-2 text-gold font-bold">Home</a></li>
+        
+        <li class="pt-2">
+          <span class="block py-2 text-gold font-bold orbitron text-xs">ABOUT US</span>
+          <ul class="pl-4">
+            <li><a href="history.html" class="block py-2 hover:text-gold">History</a></li>
+            <li><a href="board.html" class="block py-2 hover:text-gold">Leadership</a></li>
+            <li><a href="minutes.html" class="block py-2 hover:text-gold">Minutes & Bulletins</a></li>
+          </ul>
+        </li>
+
+        <li class="pt-2">
+          <span class="block py-2 text-gold font-bold orbitron text-xs">ACTIVITIES</span>
+          <ul class="pl-4">
+            <li><a href="activities.html" class="block py-2 hover:text-gold">All Activities</a></li>
+            <li><a href="nets.html" class="block py-2 hover:text-gold">Nets & Meetings</a></li>
+          </ul>
+        </li>
+
+        <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
+
+        <li class="pt-2 border-t border-gold/40">
+          <a href="membership.html" class="block py-2 hover:text-gold">Membership</a>
+        </li>
+        <li><a href="store.html" class="block py-2 hover:text-gold">Store</a></li>
+        <li><a href="uploads.html" class="block py-2 hover:text-gold">Uploads</a></li>
+        <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero pt-32 pb-12 px-6 text-center">
     <div class="max-w-5xl mx-auto">
-      <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-gold">Reading Radio Club</h1> <p class="text-xl text-text mb-8">W3BN Repeater – Serving Reading, PA with over 90 active hams. Emergency comms, public service, and ragchewing since 1922.</p> <div class="flex flex-col sm:flex-row gap-6 justify-center">
+      <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-gold">Reading Radio Club</h1>
+      <p class="text-xl text-text mb-8">W3BN Repeater – Serving Reading, PA with over 90 active hams. Emergency comms, public service, and ragchewing since 1922.</p>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
         <a href="membership.html" class="btn-gold">Join Us</a>
         <a href="propagation.html" class="btn-outline-gold">Check Propagation</a>
       </div>
@@ -106,29 +108,45 @@
   </section>
 
   <section class="py-12 px-6 max-w-7xl mx-auto flex-grow">
-    <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Quick Links</h2> <div class="grid md:grid-cols-3 gap-6">
+    <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Quick Links</h2>
+    <div class="grid md:grid-cols-3 gap-6">
       
       <div class="bg-navy-card">
-        <h3 class="text-xl font-semibold mb-2 text-gold">Next Nets</h3> <p class="text-sm">General: <span class="next-general"></span></p>
-        <p class="text-sm">Board: <span class="next-board"></span></p>
-        <p class="text-sm">MOTA: <span class="next-mota"></span></p>
+        <h3 class="text-xl font-semibold mb-2 text-gold">Club Nets (W3BN)</h3>
+        <p class="text-sm"><strong>General:</strong> <span class="next-general"></span></p>
+        <p class="text-sm"><strong>Board:</strong> <span class="next-board"></span></p>
+        <p class="text-sm"><strong>MOTA:</strong> <span class="next-mota"></span></p>
+        <p class="text-sm text-muted mt-2">
+          Repeater: 146.910 MHz (-, 131.8 PL)
+        </p>
       </div>
       
       <div class="bg-navy-card">
-        <h3 class="text-xl font-semibold mb-2 text-gold">W3BN Repeater</h3> <p class="text-sm">146.910 MHz (-) | -600kHz | 131.8Hz PL </p>
-        <a href="contact.html" class="text-gold hover:underline">Status →</a> </div>
+        <h3 class="text-xl font-semibold mb-2 text-gold">Area Nets (K2SEH)</h3>
+        <p class="text-sm"><strong>ARES/RACES Net:</strong> Mon 8:00 PM</p>
+        <p class="text-sm"><strong>BRAIN Net:</strong> [TIME TBD]</p>
+        <p classimg class="text-sm text-muted mt-2">
+          Repeater: 147.180 MHz (+, 110.9 PL)
+        </p>
+      </div>
       
       <div class="bg-navy-card">
-        <h3 class="text-xl font-semibold mb-2 text-gold">Events</h3> <p class="text-sm">Field Day June 2026 | Club Picnic July</p>
-        <a href="activities.html" class="text-gold hover:underline">Calendar →</a> </div>
+        <h3 class="text-xl font-semibold mb-2 text-gold">Get Involved</h3>
+        <p class="text-sm text-text mb-4">New to the club or looking to get active? Start here.</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="membership.html" class="btn-outline-gold text-center">Join Us</a>
+          <a href="activities.html" class="btn-outline-gold text-center">See Activities</a>
+        </div>
+      </div>
+
     </div>
   </section>
-
   <footer class="mt-20 py-8 px-6 text-center text-muted text-sm border-t border-gold/40">
     <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
     <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-gold hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-gold hover:underline">Member Login</a></p>
   </footer>
 
   <script src="js/auto-dates.js"></script>
-  <script src="js/mobile-menu.js"></script> </body>
+  <script src="js/mobile-menu.js"></script>
+</body>
 </html>
