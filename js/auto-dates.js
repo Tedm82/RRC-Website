@@ -17,19 +17,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // === CALCULATE ALL EVENT DATES ===
 
-  // General Meeting → 1st Friday @ 7:30 PM
-  let general = getNthWeekday(year, month, 5, 1);
+  // General Meeting → 2nd Friday @ 7:30 PM
+  let general = getNthWeekday(year, month, 5, 2);
   general.setHours(19, 30, 0, 0);
   if (general < now) {
-    general = getNthWeekday(year, month + 1, 5, 1);
+    general = getNthWeekday(year, month + 1, 5, 2);
     general.setHours(19, 30, 0, 0);
   }
 
   // Board Meeting → 1st Tuesday @ 7:30 PM
-  let board = getNthWeekday(year, month, 2, 1);
+  let board = getNthWeekday(year, month, 2, 2);
   board.setHours(19, 30, 0, 0);
   if (board < now) {
-    board = getNthWeekday(year, month + 1, 2, 1);
+    board = getNthWeekday(year, month + 1, 2, 2);
     board.setHours(19, 30, 0, 0);
   }
 
