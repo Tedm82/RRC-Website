@@ -6,11 +6,11 @@
   <title>Reading Radio Club | W3BN-W3CCH Repeater</title>
   <meta name="description" content="Reading Radio Club – W3BN VHF/UHF repeater serving Reading, PA. Join 93 members for nets, events, and amateur radio fun." />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
+   
   <script src="https://cdn.tailwindcss.com"></script>
-  
+   
   <link rel="stylesheet" href="styles.css">
-  
+   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
@@ -39,7 +39,7 @@
           <span class="text-xl">W3BN | W3CCH</span>
         </div>
       </a>
-      
+       
       <ul class="hidden md:flex space-x-6 text-sm">
         <li><a href="index.html" class="text-gold font-bold">Home</a></li>
         <li class="relative group">
@@ -112,35 +112,48 @@
   <section class="py-12 px-6 max-w-7xl mx-auto">
     <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Club Dashboard</h2>
     <div class="grid md:grid-cols-3 gap-6">
-      
+       
       <div class="bg-navy-card">
         <h3 class="text-xl font-semibold mb-2 text-gold">Club Nets (W3BN)</h3>
-        <p class="text-sm"><strong>General:</strong> <span class="next-general"></span></p>
-        <p class="text-sm"><strong>Board:</strong> <span class="next-board"></span></p>
-        <p class="text-sm"><strong>MOTA:</strong> <span class="next-mota"></span></p>
-        <p class="text-sm text-muted mt-2">
+        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
+            <span>MOTA Net:</span> <span class="next-mota font-mono text-gold">Loading...</span>
+        </p>
+        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
+            <span>Digital (FLDIGI):</span> <span class="next-digital-full font-mono text-gold">Loading...</span>
+        </p>
+        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
+            <span>Simplex Test:</span> <span class="next-simplex-full font-mono text-gold">Loading...</span>
+        </p>
+        <p class="text-sm text-muted mt-4">
           Repeater: 146.910 MHz (-, 131.8 PL)
         </p>
       </div>
-      
+       
       <div class="bg-navy-card">
         <h3 class="text-xl font-semibold mb-2 text-gold">Area Nets (K2SEH)</h3>
-        <p class="text-sm"><strong>ARES/RACES:</strong> <span class="next-ares"></span></p>
-        <p class="text-sm"><strong>BRAIN Net:</strong> <span class="next-brain"></span></p>
-        <p class="text-sm text-muted mt-2">
+        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
+            <span>ARES/RACES:</span> <span class="next-ares font-mono text-green-400">Loading...</span>
+        </p>
+        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
+            <span>BRAIN Net:</span> <span class="next-brain font-mono text-green-400">Loading...</span>
+        </p>
+        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
+            <span>QCWA Net:</span> <span class="next-qcwa-full font-mono text-green-400">Loading...</span>
+        </p>
+        <p class="text-sm text-muted mt-4">
           Repeater: 147.180 MHz (+, 110.9 PL)
         </p>
       </div>
-      
-      <div class="bg-navy-card">
-        <h3 class="text-xl font-semibold mb-2 text-gold">Upcoming Event</h3>
+       
+      <div class="bg-navy-card flex flex-col justify-center items-center text-center">
+        <h3 class="text-xl font-semibold mb-2 text-gold">Next Club Meeting</h3>
         <div id="next-event-loader" class="flex justify-center items-center py-4">
           <div class="spinner"></div>
         </div>
-        <div id="next-event-content" class="hidden">
-          <p class="text-sm text-gold font-bold text-lg" id="next-event-name"></p>
-          <p class="text-sm text-text" id="next-event-date"></p>
-          <a href="activities.html" class="btn-outline-gold text-center mt-4 block">
+        <div id="next-event-content" class="hidden w-full">
+          <p class="text-lg font-bold text-white mb-1" id="next-event-name"></p>
+          <p class="text-sm text-gold mb-4" id="next-event-date"></p>
+          <a href="activities.html" class="btn-outline-gold text-center block text-sm py-2">
             See All Activities
           </a>
         </div>
@@ -148,11 +161,12 @@
 
     </div>
   </section>
+
   <section class="pb-12 px-6 max-w-7xl mx-auto flex-grow w-full">
     <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Ham Radio News</h2>
-    
+     
     <div class="grid md:grid-cols-2 gap-8">
-      
+       
       <div class="bg-navy-card p-6 md:p-8">
         <h3 class="text-2xl font-semibold text-gold mb-6">ARRL News</h3>
         <ul id="arrl-feed-list" class="space-y-5">
