@@ -110,57 +110,50 @@
   </section>
 
   <section class="py-12 px-6 max-w-7xl mx-auto">
-    <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Club Dashboard</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-       
-      <div class="bg-navy-card">
-        <h3 class="text-xl font-semibold mb-2 text-gold">Club Nets (W3BN)</h3>
-        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
-            <span>MOTA Net:</span> <span class="next-mota font-mono text-gold">Loading...</span>
-        </p>
-        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
-            <span>Digital (FLDIGI):</span> <span class="next-digital-full font-mono text-gold">Loading...</span>
-        </p>
-        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
-            <span>Simplex Test:</span> <span class="next-simplex-full font-mono text-gold">Loading...</span>
-        </p>
-        <p class="text-sm text-muted mt-4">
-          Repeater: 146.910 MHz (-, 131.8 PL)
-        </p>
+  <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Club Dashboard</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    
+    <div class="bg-navy-card p-6 rounded-lg border border-gold/20">
+      <h3 class="text-xl font-semibold mb-4 text-gold orbitron">Club Nets (W3BN)</h3>
+      <div class="space-y-2">
+        <p class="text-sm"><strong>MOTA Net:</strong> <span class="next-mota"></span></p>
+        <p class="text-sm"><strong>Digital (FLDIGI):</strong> <span class="next-digital"></span></p>
+        <p class="text-sm"><strong>Simplex Test:</strong> <span class="next-simplex"></span></p>
+        <p class="text-sm"><strong>General Mtg:</strong> <span class="next-general"></span></p>
       </div>
-       
-      <div class="bg-navy-card">
-        <h3 class="text-xl font-semibold mb-2 text-gold">Area Nets (K2SEH)</h3>
-        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
-            <span>ARES/RACES:</span> <span class="next-ares font-mono text-green-400">Loading...</span>
-        </p>
-        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
-            <span>BRAIN Net:</span> <span class="next-brain font-mono text-green-400">Loading...</span>
-        </p>
-        <p class="text-sm border-b border-gray-700 pb-1 mb-2 flex justify-between">
-            <span>QCWA Net:</span> <span class="next-qcwa-full font-mono text-green-400">Loading...</span>
-        </p>
-        <p class="text-sm text-muted mt-4">
-          Repeater: 147.180 MHz (+, 110.9 PL)
-        </p>
-      </div>
-       
-      <div class="bg-navy-card flex flex-col justify-center items-center text-center">
-        <h3 class="text-xl font-semibold mb-2 text-gold">Next Club Meeting</h3>
-        <div id="next-event-loader" class="flex justify-center items-center py-4">
-          <div class="spinner"></div>
-        </div>
-        <div id="next-event-content" class="hidden w-full">
-          <p class="text-lg font-bold text-white mb-1" id="next-event-name"></p>
-          <p class="text-sm text-gold mb-4" id="next-event-date"></p>
-          <a href="activities.html" class="btn-outline-gold text-center block text-sm py-2">
-            See All Activities
-          </a>
-        </div>
-      </div>
-
+      <p class="text-xs text-muted mt-4 pt-2 border-t border-gold/10">
+        <i class="fas fa-broadcast-tower mr-1"></i> 146.910 MHz (-, 131.8 PL)
+      </p>
     </div>
-  </section>
+    
+    <div class="bg-navy-card p-6 rounded-lg border border-gold/20">
+      <h3 class="text-xl font-semibold mb-4 text-gold orbitron">Area Nets (K2SEH)</h3>
+      <div class="space-y-2">
+        <p class="text-sm"><strong>ARES/RACES:</strong> <span class="next-ares"></span></p>
+        <p class="text-sm"><strong>BRAIN Net:</strong> <span class="next-brain"></span></p>
+        <p class="text-sm"><strong>QCWA Net:</strong> <span class="next-qcwa"></span></p>
+      </div>
+      <p class="text-xs text-muted mt-4 pt-2 border-t border-gold/10">
+        <i class="fas fa-broadcast-tower mr-1"></i> 147.180 MHz (+, 110.9 PL)
+      </p>
+    </div>
+    
+    <div class="bg-navy-card p-6 rounded-lg border border-gold/20">
+      <h3 class="text-xl font-semibold mb-4 text-gold orbitron">Upcoming Event</h3>
+      <div id="next-event-loader" class="flex justify-center items-center py-4">
+        <div class="spinner"></div>
+      </div>
+      <div id="next-event-content" class="hidden">
+        <p class="text-lg text-gold font-bold mb-1" id="next-event-name"></p>
+        <p class="text-sm text-text mb-4" id="next-event-date"></p>
+        <a href="activities.html" class="btn-outline-gold text-center block w-full py-2 text-xs uppercase tracking-wider">
+          See All Activities
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <section class="pb-12 px-6 max-w-7xl mx-auto flex-grow w-full">
     <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Ham Radio News</h2>
