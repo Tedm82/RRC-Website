@@ -1,251 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reading Radio Club | W3BN-W3CCH Repeater</title>
-  <meta name="description" content="Reading Radio Club – W3BN VHF/UHF repeater serving Reading, PA. Join 93 members for nets, events, and amateur radio fun." />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-   
-  <script src="https://cdn.tailwindcss.com"></script>
-   
-  <link rel="stylesheet" href="styles.css">
-   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading Radio Club | W3BN-W3CCH Repeater</title>
+  <meta name="description" content="Reading Radio Club – W3BN VHF/UHF repeater serving Reading, PA. Join 93 members for nets, events, and amateur radio fun." />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    .spinner {
-      border: 4px solid var(--border-gold);
-      border-top: 4px solid var(--gold);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
+  <style>
+    .spinner {
+      border: 4px solid var(--border-gold);
+      border-top: 4px solid var(--gold);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <nav class="fixed w-full z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="flex items-center space-x-3">
-        <img src="assets/logo.jpg" alt="Reading Radio Club Logo" class="h-12 w-auto">
-        <div class="flex flex-col text-2xl font-bold orbitron text-gold leading-tight">
-          <span>The Reading Radio Club</span>
-          <span class="text-xl">W3BN | W3CCH</span>
-        </div>
-      </a>
-       
-      <ul class="hidden md:flex space-x-6 text-sm">
-        <li><a href="index.html" class="text-gold font-bold">Home</a></li>
-        <li class="relative group">
-          <a href="#" class="hover:text-gold">
-            About Us <i class="fas fa-chevron-down text-xs opacity-70"></i>
-          </a>
-          <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
-            <li><a href="history.html" class="block px-4 py-2 hover:bg-slate-800">History</a></li>
-            <li><a href="board.html" class="block px-4 py-2 hover:bg-slate-800">Leadership</a></li>
-            <li><a href="minutes.html" class="block px-4 py-2 hover:bg-slate-800">Minutes & Bulletins</a></li>
-          </ul>
-        </li>
-        <li class="relative group">
-          <a href="#" class="hover:text-gold">
-            Activities <i class="fas fa-chevron-down text-xs opacity-70"></i>
-          </a>
-          <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
-            <li><a href="activities.html" class="block px-4 py-2 hover:bg-slate-800">All Activities</a></li>
-            <li><a href="nets.html" class="block px-4 py-2 hover:bg-slate-800">Nets & Meetings</a></li>
-          </ul>
-        </li>
-        <li><a href="propagation.html" class="hover:text-gold">Propagation</a></li>
-        <li><a href="membership.html" class="hover:text-gold">Membership</a></li>
-        <li><a href="store.html" class="hover:text-gold">Store</a></li>
-        <li><a href="uploads.html" class="hover:text-gold">Uploads</a></li>
-        <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
-      </ul>
-      <button id="menu-btn" class="md:hidden text-gold">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden">
-      <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
-        <li><a href="index.html" class="block py-2 text-gold font-bold">Home</a></li>
-        <li class="pt-2">
-          <span class="block py-2 text-gold font-bold orbitron text-xs">ABOUT US</span>
-          <ul class="pl-4">
-            <li><a href="history.html" class="block py-2 hover:text-gold">History</a></li>
-            <li><a href="board.html" class="block py-2 hover:text-gold">Leadership</a></li>
-            <li><a href="minutes.html" class="block py-2 hover:text-gold">Minutes & Bulletins</a></li>
-          </ul>
-        </li>
-        <li class="pt-2">
-          <span class="block py-2 text-gold font-bold orbitron text-xs">ACTIVITIES</span>
-          <ul class="pl-4">
-            <li><a href="activities.html" class="block py-2 hover:text-gold">All Activities</a></li>
-            <li><a href="nets.html" class="block py-2 hover:text-gold">Nets & Meetings</a></li>
-          </ul>
-        </li>
-        <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
-        <li class="pt-2 border-t border-gold/40"><a href="membership.html" class="block py-2 hover:text-gold">Membership</a></li>
-        <li><a href="store.html" class="block py-2 hover:text-gold">Store</a></li>
-        <li><a href="uploads.html" class="block py-2 hover:text-gold">Uploads</a></li>
-        <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <nav class="fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="assets/logo.jpg" alt="Reading Radio Club Logo" class="h-12 w-auto">
+        <div class="flex flex-col text-2xl font-bold orbitron text-gold leading-tight">
+          <span>The Reading Radio Club</span>
+          <span class="text-xl">W3BN | W3CCH</span>
+        </div>
+      </a>
+      
+      <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="index.html" class="text-gold font-bold">Home</a></li>
+        <li class="relative group">
+          <a href="#" class="hover:text-gold">
+            About Us <i class="fas fa-chevron-down text-xs opacity-70"></i>
+          </a>
+          <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
+            <li><a href="history.html" class="block px-4 py-2 hover:bg-slate-800">History</a></li>
+            <li><a href="board.html" class="block px-4 py-2 hover:bg-slate-800">Leadership</a></li>
+            <li><a href="minutes.html" class="block px-4 py-2 hover:bg-slate-800">Minutes & Bulletins</a></li>
+          </ul>
+        </li>
+        <li class="relative group">
+          <a href="#" class="hover:text-gold">
+            Activities <i class="fas fa-chevron-down text-xs opacity-70"></i>
+          </a>
+          <ul class="absolute left-0 top-full hidden group-hover:block bg-slate-900 border border-gold/40 py-2 rounded-lg w-48 shadow-lg">
+            <li><a href="activities.html" class="block px-4 py-2 hover:bg-slate-800">All Activities</a></li>
+            <li><a href="nets.html" class="block px-4 py-2 hover:bg-slate-800">Nets & Meetings</a></li>
+          </ul>
+        </li>
+        <li><a href="propagation.html" class="hover:text-gold">Propagation</a></li>
+        <li><a href="membership.html" class="hover:text-gold">Membership</a></li>
+        <li><a href="store.html" class="hover:text-gold">Store</a></li>
+        <li><a href="uploads.html" class="hover:text-gold">Uploads</a></li>
+        <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden text-gold">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden">
+      <ul class="flex flex-col space-y-2 px-6 py-4 text-sm">
+        <li><a href="index.html" class="block py-2 text-gold font-bold">Home</a></li>
+        <li class="pt-2">
+          <span class="block py-2 text-gold font-bold orbitron text-xs">ABOUT US</span>
+          <ul class="pl-4">
+            <li><a href="history.html" class="block py-2 hover:text-gold">History</a></li>
+            <li><a href="board.html" class="block py-2 hover:text-gold">Leadership</a></li>
+            <li><a href="minutes.html" class="block py-2 hover:text-gold">Minutes & Bulletins</a></li>
+          </ul>
+        </li>
+        <li class="pt-2">
+          <span class="block py-2 text-gold font-bold orbitron text-xs">ACTIVITIES</span>
+          <ul class="pl-4">
+            <li><a href="activities.html" class="block py-2 hover:text-gold">All Activities</a></li>
+            <li><a href="nets.html" class="block py-2 hover:text-gold">Nets & Meetings</a></li>
+          </ul>
+        </li>
+        <li><a href="propagation.html" class="block py-2 hover:text-gold">Propagation</a></li>
+        <li class="pt-2 border-t border-gold/40"><a href="membership.html" class="block py-2 hover:text-gold">Membership</a></li>
+        <li><a href="store.html" class="block py-2 hover:text-gold">Store</a></li>
+        <li><a href="uploads.html" class="block py-2 hover:text-gold">Uploads</a></li>
+        <li><a href="contact.html" class="block py-2 hover:text-gold">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <section class="hero pt-32 pb-12 px-6 text-center">
-    <div class="max-w-5xl mx-auto">
-      <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-gold">Reading Radio Club</h1>
-      <p class="text-xl text-text mb-8">W3BN Repeater – Serving Reading, PA with over 90 active hams. Emergency comms, public service, and ragchewing since 1922.</p>
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="membership.html" class="btn-gold">Join Us</a>
-        <a href="propagation.html" class="btn-outline-gold">Check Propagation</a>
-      </div>
-    </div>
-  </section>
+  <section class="hero pt-32 pb-12 px-6 text-center">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-black orbitron mb-4 text-gold">Reading Radio Club</h1>
+      <p class="text-xl text-text mb-8">W3BN Repeater – Serving Reading, PA with over 90 active hams. Emergency comms, public service, and ragchewing since 1922.</p>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="membership.html" class="btn-gold">Join Us</a>
+        <a href="propagation.html" class="btn-outline-gold">Check Propagation</a>
+      </div>
+    </div>
+  </section>
 
-  <section class="py-12 px-6 max-w-7xl mx-auto">
-  <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Club Dashboard</h2>
-  <div class="grid md:grid-cols-3 gap-6">
-    
-    <div class="bg-navy-card p-6 rounded-lg border border-gold/20">
-      <h3 class="text-xl font-semibold mb-4 text-gold orbitron">Club Nets (W3BN)</h3>
-      <div class="space-y-2">
-        <p class="text-sm"><strong>MOTA Net:</strong> <span class="next-mota"></span></p>
-        <p class="text-sm"><strong>Digital (FLDIGI):</strong> <span class="next-digital"></span></p>
-        <p class="text-sm"><strong>Simplex Test:</strong> <span class="next-simplex"></span></p>
-        <p class="text-sm"><strong>General Mtg:</strong> <span class="next-general"></span></p>
-      </div>
-      <p class="text-xs text-muted mt-4 pt-2 border-t border-gold/10">
-        <i class="fas fa-broadcast-tower mr-1"></i> 146.910 MHz (-, 131.8 PL)
-      </p>
-    </div>
-    
-    <div class="bg-navy-card p-6 rounded-lg border border-gold/20">
-      <h3 class="text-xl font-semibold mb-4 text-gold orbitron">Area Nets (K2SEH)</h3>
-      <div class="space-y-2">
-        <p class="text-sm"><strong>ARES/RACES:</strong> <span class="next-ares"></span></p>
-        <p class="text-sm"><strong>BRAIN Net:</strong> <span class="next-brain"></span></p>
-        <p class="text-sm"><strong>QCWA Net:</strong> <span class="next-qcwa"></span></p>
-      </div>
-      <p class="text-xs text-muted mt-4 pt-2 border-t border-gold/10">
-        <i class="fas fa-broadcast-tower mr-1"></i> 147.180 MHz (+, 110.9 PL)
-      </p>
-    </div>
-    
-    <div class="bg-navy-card p-6 rounded-lg border border-gold/20">
-      <h3 class="text-xl font-semibold mb-4 text-gold orbitron">Upcoming Event</h3>
-      <div id="next-event-loader" class="flex justify-center items-center py-4">
-        <div class="spinner"></div>
-      </div>
-      <div id="next-event-content" class="hidden">
-        <p class="text-lg text-gold font-bold mb-1" id="next-event-name"></p>
-        <p class="text-sm text-text mb-4" id="next-event-date"></p>
-        <a href="activities.html" class="btn-outline-gold text-center block w-full py-2 text-xs uppercase tracking-wider">
-          See All Activities
-        </a>
-      </div>
-    </div>
+  <section class="py-12 px-6 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Club Dashboard</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      
+      <div class="bg-navy-card">
+        <h3 class="text-xl font-semibold mb-2 text-gold">Club Nets (W3BN)</h3>
+        <p class="text-sm"><strong>General:</strong> <span class="next-general"></span></p>
+        <p class="text-sm"><strong>Board:</strong> <span class="next-board"></span></p>
+        <p class="text-sm"><strong>MOTA:</strong> <span class="next-mota"></span></p>
+        <p class="text-sm text-muted mt-2">
+          Repeater: 146.910 MHz (-, 131.8 PL)
+        </p>
+      </div>
+      
+      <div class="bg-navy-card">
+        <h3 class="text-xl font-semibold mb-2 text-gold">Area Nets (K2SEH)</h3>
+        <p class="text-sm"><strong>ARES/RACES:</strong> <span class="next-ares"></span></p>
+        <p class="text-sm"><strong>BRAIN Net:</strong> <span class="next-brain"></span></p>
+        <p class="text-sm text-muted mt-2">
+          Repeater: 147.180 MHz (+, 110.9 PL)
+        </p>
+      </div>
+      
+      <div class="bg-navy-card">
+        <h3 class="text-xl font-semibold mb-2 text-gold">Upcoming Event</h3>
+        <div id="next-event-loader" class="flex justify-center items-center py-4">
+          <div class="spinner"></div>
+        </div>
+        <div id="next-event-content" class="hidden">
+          <p class="text-sm text-gold font-bold text-lg" id="next-event-name"></p>
+          <p class="text-sm text-text" id="next-event-date"></p>
+          <a href="activities.html" class="btn-outline-gold text-center mt-4 block">
+            See All Activities
+          </a>
+        </div>
+      </div>
 
-  </div>
-</section>
+    </div>
+  </section>
+  <section class="pb-12 px-6 max-w-7xl mx-auto flex-grow w-full">
+    <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Ham Radio News</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <div class="bg-navy-card p-6 md:p-8">
+        <h3 class="text-2xl font-semibold text-gold mb-6">ARRL News</h3>
+        <ul id="arrl-feed-list" class="space-y-5">
+          <li id="arrl-loader" class="flex justify-center items-center py-10">
+            <div class="spinner"></div>
+          </li>
+        </ul>
+      </div>
 
-  <section class="pb-12 px-6 max-w-7xl mx-auto flex-grow w-full">
-    <h2 class="text-3xl font-bold orbitron text-center mb-8 text-gold">Ham Radio News</h2>
-     
-    <div class="grid md:grid-cols-2 gap-8">
-       
-      <div class="bg-navy-card p-6 md:p-8">
-        <h3 class="text-2xl font-semibold text-gold mb-6">ARRL News</h3>
-        <ul id="arrl-feed-list" class="space-y-5">
-          <li id="arrl-loader" class="flex justify-center items-center py-10">
-            <div class="spinner"></div>
-          </li>
-        </ul>
-      </div>
+      <div class="bg-navy-card p-6 md:p-8">
+        <h3 class="text-2xl font-semibold text-gold mb-6">Amateur Radio Newsline</h3>
+        <ul id="newsline-feed-list" class="space-y-5">
+          <li id="newsline-loader" class="flex justify-center items-center py-10">
+            <div class="spinner"></div>
+          </li>
+        </ul>
+      </div>
 
-      <div class="bg-navy-card p-6 md:p-8">
-        <h3 class="text-2xl font-semibold text-gold mb-6">Amateur Radio Newsline</h3>
-        <ul id="newsline-feed-list" class="space-y-5">
-          <li id="newsline-loader" class="flex justify-center items-center py-10">
-            <div class="spinner"></div>
-          </li>
-        </ul>
-      </div>
+    </div>
+  </section>
+  <footer class="mt-20 py-8 px-6 text-center text-muted text-sm border-t border-gold/40">
+    <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
+    <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-gold hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-gold hover:underline">Member Login</a></p>
+  </footer>
 
-    </div>
-  </section>
-  <footer class="mt-20 py-8 px-6 text-center text-muted text-sm border-t border-gold/40">
-    <p>© 2025 Reading Radio Club • W3BN Repeater • Reading, PA</p>
-    <p class="mt-2"><a href="https://arrl.org" target="_blank" class="text-gold hover:underline">ARRL</a> • <a href="https://hamclubonline.com" target="_blank" class="text-gold hover:underline">Member Login</a></p>
-  </footer>
+  <script src="js/auto-dates.js"></script>
+  <script src="js/mobile-menu.js"></script>
 
-  <script src="js/auto-dates.js"></script>
-  <script src="js/mobile-menu.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // === UPDATED FEEDS ===
+    const feeds = [
+      {
+        url: 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.arrl.org%2Farrl.rss',
+        listId: 'arrl-feed-list',
+        loaderId: 'arrl-loader',
+        count: 3
+      },
+      {
+        url: 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.arnewsline.org%2F%3Fformat%3Drss',
+        listId: 'newsline-feed-list',
+        loaderId: 'newsline-loader',
+        count: 3
+      }
+    ];
 
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // === UPDATED FEEDS ===
-    const feeds = [
-      {
-        url: 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.arrl.org%2Farrl.rss',
-        listId: 'arrl-feed-list',
-        loaderId: 'arrl-loader',
-        count: 3
-      },
-      {
-        url: 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.arnewsline.org%2F%3Fformat%3Drss',
-        listId: 'newsline-feed-list',
-        loaderId: 'newsline-loader',
-        count: 3
-      }
-    ];
+    async function loadNewsFeed(feedUrl, listId, loaderId, articleCount) {
+      const listElement = document.getElementById(listId);
+      const loaderElement = document.getElementById(loaderId);
+      try {
+        const response = await fetch(feedUrl + `&_=${new Date().getTime()}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
 
-    async function loadNewsFeed(feedUrl, listId, loaderId, articleCount) {
-      const listElement = document.getElementById(listId);
-      const loaderElement = document.getElementById(loaderId);
-      try {
-        const response = await fetch(feedUrl + `&_=${new Date().getTime()}`);
-        if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.json();
+        if (data.items && data.items.length > 0) {
+          const articles = data.items.slice(0, articleCount);
+          listElement.innerHTML = '';
+          articles.forEach(article => {
+            const li = document.createElement('li');
+            li.className = 'border-b border-gold/40 pb-5 last:pb-0 last:border-b-0';
 
-        if (data.items && data.items.length > 0) {
-          const articles = data.items.slice(0, articleCount);
-          listElement.innerHTML = '';
-          articles.forEach(article => {
-            const li = document.createElement('li');
-            li.className = 'border-b border-gold/40 pb-5 last:pb-0 last:border-b-0';
+            const pubDate = new Date(article.pubDate || article.date_published).toLocaleDateString('en-US', {
+              month: 'long', day: 'numeric', year: 'numeric'
+            });
 
-            const pubDate = new Date(article.pubDate || article.date_published).toLocaleDateString('en-US', {
-              month: 'long', day: 'numeric', year: 'numeric'
-            });
+            li.innerHTML = `
+              <a href="${article.link || article.url}" target="_blank" rel="noopener noreferrer" class="text-lg text-gold hover:underline font-semibold">
+                ${article.title}
+              </a>
+              <p class="text-muted text-sm mt-1">Published: ${pubDate}</p>
+            `;
+            listElement.appendChild(li);
+          });
+        } else {
+          throw new Error('No items in feed');
+        }
+      } catch (error) {
+        console.error(`Failed to load ${listId}:`, error);
+        listElement.innerHTML = `<li class="text-red-400">Error: Could not load news feed. Please try again later.</li>`;
+      } finally {
+        if (loaderElement) loaderElement.remove();
+      }
+    }
 
-            li.innerHTML = `
-              <a href="${article.link || article.url}" target="_blank" rel="noopener noreferrer" class="text-lg text-gold hover:underline font-semibold">
-                ${article.title}
-              </a>
-              <p class="text-muted text-sm mt-1">Published: ${pubDate}</p>
-            `;
-            listElement.appendChild(li);
-          });
-        } else {
-          throw new Error('No items in feed');
-        }
-      } catch (error) {
-        console.error(`Failed to load ${listId}:`, error);
-        listElement.innerHTML = `<li class="text-red-400">Error: Could not load news feed. Please try again later.</li>`;
-      } finally {
-        if (loaderElement) loaderElement.remove();
-      }
-    }
-
-    feeds.forEach(feed => loadNewsFeed(feed.url, feed.listId, feed.loaderId, feed.count));
-  });
+    feeds.forEach(feed => loadNewsFeed(feed.url, feed.listId, feed.loaderId, feed.count));
+  });
 </script>
 </body>
 </html>
