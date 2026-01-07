@@ -17,23 +17,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // === CALCULATE ALL EVENT DATES ===
 
-  // General Meeting → 2nd Friday @ 7:30 PM
-  let general = getNthWeekday(year, month, 5, 2);
+  // General Meeting → NOW 2nd Friday @ 7:30 PM
+  // Changed last parameter from 1 to 2
+  let general = getNthWeekday(year, month, 5, 2); 
   general.setHours(19, 30, 0, 0);
+  
+  // If the meeting has passed, get the 2nd Friday of next month
   if (general < now) {
-    general = getNthWeekday(year, month + 1, 5, 2);
+    general = getNthWeekday(year, month + 1, 5, 2); // Changed here as well
     general.setHours(19, 30, 0, 0);
   }
 
   // Board Meeting → 1st Tuesday @ 7:30 PM
-  let board = getNthWeekday(year, month, 2, 2);
+  let board = getNthWeekday(year, month, 2, 1);
   board.setHours(19, 30, 0, 0);
   if (board < now) {
-    board = getNthWeekday(year, month + 1, 2, 2);
+    board = getNthWeekday(year, month + 1, 2, 1);
     board.setHours(19, 30, 0, 0);
   }
 
   // Simplex Test → Saturday after General Meeting
+  // (No change needed here; it automatically follows the new 'general' date)
   const simplex = new Date(general);
   simplex.setDate(general.getDate() + ((6 - general.getDay() + 7) % 7 || 7));
   simplex.setHours(10, 0, 0, 0); // 10:00 AM
@@ -45,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     digital = getNthWeekday(year, month + 1, 4, 3);
     digital.setHours(20, 0, 0, 0);
   }
-  
+   
   // QCWA Net → Next Monday @ 9:00 PM
   let qcwa = new Date(now);
   const daysToMonday = (1 - now.getDay() + 7) % 7; // 1=Monday
@@ -74,10 +78,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // MOTA Net → Next Friday that is NOT the General Meeting Friday
+  // (No change needed here; it checks against the new 'general' date automatically)
   let candidate = new Date(now);
   candidate.setHours(20, 0, 0, 0);
   const daysToFriday = (5 - now.getDay() + 7) % 7 || 7;
   candidate.setDate(now.getDate() + daysToFriday);
+  
+  // This loop ensures we skip the Friday if it matches the General Meeting
   while (candidate.toDateString() === general.toDateString()) {
     candidate.setDate(candidate.getDate() + 7);
   }
@@ -94,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
       day: 'numeric',
     }) + " @ " + date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
   }
-  
+   
   function formatFull(date) {
     // Full format for other pages (e.g., Wednesday, Nov 12, 2025 @ 8:00 PM)
     return date.toLocaleDateString('en-US', {
@@ -113,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.next-mota').forEach(el => el.textContent = formatShort(mota));
   document.querySelectorAll('.next-ares').forEach(el => el.textContent = formatShort(ares));
   document.querySelectorAll('.next-brain').forEach(el => el.textContent = formatShort(brain));
-  
+   
   // Populate full date nets (for other pages)
   document.querySelectorAll('.next-simplex-full').forEach(el => el.textContent = formatFull(simplex));
   document.querySelectorAll('.next-digital-full').forEach(el => el.textContent = formatFull(digital));
@@ -137,10 +144,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Populate the card
     const loader = document.getElementById('next-event-loader');
     const content = document.getElementById('next-event-content');
-    
+   
     document.getElementById('next-event-name').textContent = nextEvent.name;
     document.getElementById('next-event-date').textContent = formatFull(nextEvent.date); // Use full date format
-    
+   
     // Hide loader, show content
     loader.style.display = 'none';
     content.classList.remove('hidden');
